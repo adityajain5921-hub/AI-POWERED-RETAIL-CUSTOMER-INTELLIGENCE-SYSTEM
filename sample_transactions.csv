@@ -1,0 +1,675 @@
+transaction_id,customer_id,customer_name,customer_phone,customer_email,timestamp,category,items_count,amount,payment_method
+TXN-5253,CUST-1043,Kabir Malhotra,+91 94042 84473,kabir.malhotra@example.com,2025-10-05 18:00:00,Electronics & Gadgets,2,11209.45,UPI / Mobile Pay
+TXN-5486,CUST-1084,Varun Singh,+91 97884 17777,varun.singh@example.com,2025-11-04 18:00:00,Electronics & Gadgets,2,13250.69,Cash
+TXN-5252,CUST-1043,Kabir Malhotra,+91 94042 84473,kabir.malhotra@example.com,2025-11-30 02:00:00,Electronics & Gadgets,4,2463.88,Debit Card
+TXN-5649,CUST-1116,Noah Nair,+91 91066 64276,noah.nair@example.com,2025-12-17 01:00:00,Electronics & Gadgets,1,6234.19,Credit Card
+TXN-5636,CUST-1113,Pallavi Davis,+91 93261 21496,pallavi.davis@example.com,2025-12-20 08:00:00,Apparel & Fashion,3,2354.68,Debit Card
+TXN-5467,CUST-1081,Anita Anderson,+91 97150 81024,anita.anderson@example.com,2025-12-20 10:00:00,Beauty & Personal Care,3,1047.25,Credit Card
+TXN-5485,CUST-1084,Varun Singh,+91 97884 17777,varun.singh@example.com,2025-12-26 02:00:00,Home & Lifestyle,3,2650.66,Credit Card
+TXN-5049,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2025-12-26 15:00:00,Home & Lifestyle,4,7490.33,Credit Card
+TXN-5422,CUST-1075,Sunita Joshi,+91 96459 90061,sunita.joshi@example.com,2026-01-02 21:00:00,Home & Lifestyle,2,3276.34,Credit Card
+TXN-5072,CUST-1009,Varun Taylor,+91 98538 80654,varun.taylor@example.com,2026-01-04 14:00:00,Home & Lifestyle,2,1388.6,Credit Card
+TXN-5229,CUST-1039,Gaurav Sharma,+91 93149 36704,gaurav.sharma@example.com,2026-01-07 23:00:00,Beauty & Personal Care,3,1308.61,Debit Card
+TXN-5059,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-01-12 05:00:00,Home & Lifestyle,4,1639.4,Credit Card
+TXN-5648,CUST-1116,Noah Nair,+91 91066 64276,noah.nair@example.com,2026-01-13 09:00:00,Electronics & Gadgets,3,8318.16,Debit Card
+TXN-5107,CUST-1016,Kabir Smith,+91 92438 87640,kabir.smith@example.com,2026-01-14 22:00:00,Home & Lifestyle,4,2582.23,UPI / Mobile Pay
+TXN-5048,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-01-15 21:00:00,Apparel & Fashion,1,9115.87,UPI / Mobile Pay
+TXN-5476,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-01-19 06:00:00,Footwear & Accessories,4,3459.01,Debit Card
+TXN-5466,CUST-1081,Anita Anderson,+91 97150 81024,anita.anderson@example.com,2026-01-23 17:00:00,Electronics & Gadgets,1,11034.81,Credit Card
+TXN-5257,CUST-1045,Rohan Reddy,+91 97788 13226,rohan.reddy@example.com,2026-01-23 22:00:00,Home & Lifestyle,3,3641.74,Credit Card
+TXN-5251,CUST-1043,Kabir Malhotra,+91 94042 84473,kabir.malhotra@example.com,2026-01-30 06:00:00,Electronics & Gadgets,2,3042.09,Cash
+TXN-5047,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-01-31 04:00:00,Home & Lifestyle,3,4332.55,Cash
+TXN-5058,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-02-08 14:00:00,Home & Lifestyle,1,733.08,Credit Card
+TXN-5484,CUST-1084,Varun Singh,+91 97884 17777,varun.singh@example.com,2026-02-08 14:00:00,Beauty & Personal Care,4,1157.83,Credit Card
+TXN-5212,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-02-09 01:00:00,Beauty & Personal Care,2,3647.22,Debit Card
+TXN-5446,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-02-09 04:00:00,Home & Lifestyle,3,3596.7,Debit Card
+TXN-5106,CUST-1016,Kabir Smith,+91 92438 87640,kabir.smith@example.com,2026-02-13 02:00:00,Footwear & Accessories,4,4327.68,UPI / Mobile Pay
+TXN-5647,CUST-1116,Noah Nair,+91 91066 64276,noah.nair@example.com,2026-02-15 20:00:00,Electronics & Gadgets,1,10531.02,UPI / Mobile Pay
+TXN-5148,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-02-16 00:00:00,Beauty & Personal Care,3,2069.63,Credit Card
+TXN-5635,CUST-1113,Pallavi Davis,+91 93261 21496,pallavi.davis@example.com,2026-02-18 19:00:00,Apparel & Fashion,4,1000.8,Debit Card
+TXN-5228,CUST-1039,Gaurav Sharma,+91 93149 36704,gaurav.sharma@example.com,2026-02-21 08:00:00,Home & Lifestyle,4,3742.59,Debit Card
+TXN-5475,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-02-21 12:00:00,Beauty & Personal Care,1,2623.92,Debit Card
+TXN-5364,CUST-1064,Gaurav Taylor,+91 91147 51661,gaurav.taylor@example.com,2026-02-23 04:00:00,Apparel & Fashion,1,1968.01,Cash
+TXN-5071,CUST-1009,Varun Taylor,+91 98538 80654,varun.taylor@example.com,2026-02-23 23:00:00,Footwear & Accessories,1,4104.41,UPI / Mobile Pay
+TXN-5465,CUST-1081,Anita Anderson,+91 97150 81024,anita.anderson@example.com,2026-02-24 00:00:00,Beauty & Personal Care,1,2228.13,Cash
+TXN-5046,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-02-25 07:00:00,Home & Lifestyle,2,1411.46,Debit Card
+TXN-5374,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-02-27 03:00:00,Electronics & Gadgets,4,6502.86,Cash
+TXN-5010,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-02-28 01:00:00,Apparel & Fashion,2,1514.86,Credit Card
+TXN-5421,CUST-1075,Sunita Joshi,+91 96459 90061,sunita.joshi@example.com,2026-02-28 22:00:00,Footwear & Accessories,4,3442.51,Credit Card
+TXN-5167,CUST-1027,Akash Nair,+91 93288 18184,akash.nair@example.com,2026-03-01 17:00:00,Beauty & Personal Care,3,1178.15,Cash
+TXN-5211,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-03-02 10:00:00,Beauty & Personal Care,1,3578.24,Debit Card
+TXN-5556,CUST-1100,Manish Nair,+91 98830 76359,manish.nair@example.com,2026-03-04 07:00:00,Apparel & Fashion,3,2979.84,Credit Card
+TXN-5057,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-03-06 23:00:00,Home & Lifestyle,1,1014.63,UPI / Mobile Pay
+TXN-5147,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-03-11 01:00:00,Apparel & Fashion,1,8089.26,Debit Card
+TXN-5445,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-03-15 07:00:00,Home & Lifestyle,3,3112.63,Cash
+TXN-5646,CUST-1116,Noah Nair,+91 91066 64276,noah.nair@example.com,2026-03-16 05:00:00,Electronics & Gadgets,2,6378.51,UPI / Mobile Pay
+TXN-5105,CUST-1016,Kabir Smith,+91 92438 87640,kabir.smith@example.com,2026-03-16 09:00:00,Footwear & Accessories,3,1708.8,UPI / Mobile Pay
+TXN-5513,CUST-1089,Marcus Iyer,+91 94050 52421,marcus.iyer@example.com,2026-03-16 18:00:00,Home & Lifestyle,1,3211.92,Debit Card
+TXN-5564,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-03-17 02:00:00,Home & Lifestyle,4,4711.23,Cash
+TXN-5241,CUST-1041,Pallavi Wilson,+91 92614 84503,pallavi.wilson@example.com,2026-03-17 15:00:00,Electronics & Gadgets,3,2579.72,Credit Card
+TXN-5045,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-03-17 18:00:00,Home & Lifestyle,4,1236.44,Credit Card
+TXN-5256,CUST-1045,Rohan Reddy,+91 97788 13226,rohan.reddy@example.com,2026-03-18 04:00:00,Footwear & Accessories,3,1400.02,Credit Card
+TXN-5464,CUST-1081,Anita Anderson,+91 97150 81024,anita.anderson@example.com,2026-03-18 07:00:00,Beauty & Personal Care,1,426.34,Credit Card
+TXN-5363,CUST-1064,Gaurav Taylor,+91 91147 51661,gaurav.taylor@example.com,2026-03-20 04:00:00,Apparel & Fashion,4,5055.57,UPI / Mobile Pay
+TXN-5146,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-03-22 01:00:00,Home & Lifestyle,1,4369.36,Credit Card
+TXN-5474,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-03-22 18:00:00,Beauty & Personal Care,4,1462.27,Credit Card
+TXN-5552,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-03-22 18:00:00,Home & Lifestyle,3,5926.84,Debit Card
+TXN-5210,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-03-23 19:00:00,Beauty & Personal Care,3,3222.33,Cash
+TXN-5483,CUST-1084,Varun Singh,+91 97884 17777,varun.singh@example.com,2026-03-24 01:00:00,Home & Lifestyle,4,2945.43,Debit Card
+TXN-5373,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-03-26 08:00:00,Electronics & Gadgets,2,13716.98,Credit Card
+TXN-5009,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-03-27 02:00:00,Home & Lifestyle,4,4057.66,Debit Card
+TXN-5250,CUST-1043,Kabir Malhotra,+91 94042 84473,kabir.malhotra@example.com,2026-03-27 06:00:00,Footwear & Accessories,4,995.92,Credit Card
+TXN-5555,CUST-1100,Manish Nair,+91 98830 76359,manish.nair@example.com,2026-03-27 07:00:00,Beauty & Personal Care,3,2121.63,Debit Card
+TXN-5620,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-03-28 23:00:00,Beauty & Personal Care,3,1158.08,Cash
+TXN-5227,CUST-1039,Gaurav Sharma,+91 93149 36704,gaurav.sharma@example.com,2026-04-01 08:00:00,Beauty & Personal Care,1,1347.68,Cash
+TXN-5563,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-04-01 10:00:00,Electronics & Gadgets,2,13325.29,Debit Card
+TXN-5255,CUST-1044,Kabir Bhatia,+91 96015 83229,kabir.bhatia@example.com,2026-04-03 00:00:00,Beauty & Personal Care,3,1569.47,Debit Card
+TXN-5166,CUST-1027,Akash Nair,+91 93288 18184,akash.nair@example.com,2026-04-03 22:00:00,Beauty & Personal Care,1,2024.8,Cash
+TXN-5268,CUST-1047,Vivek Singh,+91 95878 80175,vivek.singh@example.com,2026-04-04 20:00:00,Electronics & Gadgets,4,4090.57,UPI / Mobile Pay
+TXN-5112,CUST-1017,Anita Deshmukh,+91 98715 76628,anita.deshmukh@example.com,2026-04-05 01:00:00,Beauty & Personal Care,1,2429.84,Credit Card
+TXN-5070,CUST-1009,Varun Taylor,+91 98538 80654,varun.taylor@example.com,2026-04-05 23:00:00,Electronics & Gadgets,4,9520.55,Credit Card
+TXN-5021,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-04-07 11:00:00,Home & Lifestyle,3,3308.7,Credit Card
+TXN-5044,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-04-08 02:00:00,Apparel & Fashion,1,4815.27,Credit Card
+TXN-5145,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-04-09 12:00:00,Beauty & Personal Care,1,2542.72,Credit Card
+TXN-5531,CUST-1096,Olivia Malhotra,+91 92965 32243,olivia.malhotra@example.com,2026-04-10 08:00:00,Footwear & Accessories,3,1447.45,Cash
+TXN-5551,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-04-11 01:00:00,Home & Lifestyle,4,1600.44,Credit Card
+TXN-5610,CUST-1107,Vikram Wilson,+91 96688 45332,vikram.wilson@example.com,2026-04-11 02:00:00,Footwear & Accessories,1,3943.27,UPI / Mobile Pay
+TXN-5362,CUST-1064,Gaurav Taylor,+91 91147 51661,gaurav.taylor@example.com,2026-04-11 12:00:00,Apparel & Fashion,4,3107.3,Credit Card
+TXN-5390,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-04-11 20:00:00,Home & Lifestyle,3,1211.9,Debit Card
+TXN-5240,CUST-1041,Pallavi Wilson,+91 92614 84503,pallavi.wilson@example.com,2026-04-12 17:00:00,Electronics & Gadgets,4,16292.3,Credit Card
+TXN-5399,CUST-1069,Nikhil Iyer,+91 94976 59540,nikhil.iyer@example.com,2026-04-13 00:00:00,Beauty & Personal Care,3,854.11,UPI / Mobile Pay
+TXN-5634,CUST-1113,Pallavi Davis,+91 93261 21496,pallavi.davis@example.com,2026-04-14 00:00:00,Apparel & Fashion,1,3885.16,Credit Card
+TXN-5619,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-04-14 09:00:00,Home & Lifestyle,1,3570.69,Credit Card
+TXN-5287,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-04-14 16:00:00,Apparel & Fashion,2,6635.99,UPI / Mobile Pay
+TXN-5056,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-04-15 05:00:00,Home & Lifestyle,4,2791.21,Cash
+TXN-5209,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-04-16 19:00:00,Beauty & Personal Care,3,3447.2,UPI / Mobile Pay
+TXN-5174,CUST-1028,Sneha Gupta,+91 97732 86383,sneha.gupta@example.com,2026-04-18 17:00:00,Footwear & Accessories,1,2055.93,UPI / Mobile Pay
+TXN-5512,CUST-1089,Marcus Iyer,+91 94050 52421,marcus.iyer@example.com,2026-04-20 03:00:00,Footwear & Accessories,4,1577.64,Cash
+TXN-5266,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-04-20 15:00:00,Electronics & Gadgets,4,2943.0,Debit Card
+TXN-5444,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-04-20 19:00:00,Home & Lifestyle,3,2759.67,Cash
+TXN-5008,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-04-22 05:00:00,Footwear & Accessories,1,2798.63,Cash
+TXN-5144,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-04-22 18:00:00,Beauty & Personal Care,1,4180.85,UPI / Mobile Pay
+TXN-5661,CUST-1118,Sunita Sharma,+91 96125 94627,sunita.sharma@example.com,2026-04-23 01:00:00,Beauty & Personal Care,1,1572.37,UPI / Mobile Pay
+TXN-5571,CUST-1102,Rhea Deshmukh,+91 98450 18635,rhea.deshmukh@example.com,2026-04-23 14:00:00,Beauty & Personal Care,1,2807.42,Cash
+TXN-5372,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-04-24 10:00:00,Electronics & Gadgets,4,5296.5,Debit Card
+TXN-5389,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-04-24 23:00:00,Home & Lifestyle,3,3153.76,UPI / Mobile Pay
+TXN-5420,CUST-1075,Sunita Joshi,+91 96459 90061,sunita.joshi@example.com,2026-04-26 02:00:00,Footwear & Accessories,1,3727.76,Debit Card
+TXN-5618,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-04-26 12:00:00,Home & Lifestyle,4,4661.23,UPI / Mobile Pay
+TXN-5473,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-04-27 18:00:00,Footwear & Accessories,3,4269.21,Debit Card
+TXN-5217,CUST-1037,Manish Gupta,+91 92499 20502,manish.gupta@example.com,2026-04-28 01:00:00,Beauty & Personal Care,3,2074.9,Debit Card
+TXN-5020,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-04-28 15:00:00,Home & Lifestyle,1,3527.75,Debit Card
+TXN-5043,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-04-29 03:00:00,Home & Lifestyle,2,5102.92,Cash
+TXN-5550,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-04-30 03:00:00,Home & Lifestyle,4,7058.48,Debit Card
+TXN-5286,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-04-30 17:00:00,Footwear & Accessories,2,3826.59,Cash
+TXN-5249,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-04-30 20:00:00,Home & Lifestyle,1,1391.81,Cash
+TXN-5562,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-04-30 22:00:00,Electronics & Gadgets,2,12515.31,Cash
+TXN-5185,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-05-02 08:00:00,Electronics & Gadgets,1,4401.08,Credit Card
+TXN-5398,CUST-1069,Nikhil Iyer,+91 94976 59540,nikhil.iyer@example.com,2026-05-02 12:00:00,Footwear & Accessories,2,2534.04,Credit Card
+TXN-5111,CUST-1017,Anita Deshmukh,+91 98715 76628,anita.deshmukh@example.com,2026-05-03 05:00:00,Beauty & Personal Care,3,2170.85,Debit Card
+TXN-5165,CUST-1027,Akash Nair,+91 93288 18184,akash.nair@example.com,2026-05-04 01:00:00,Electronics & Gadgets,3,9703.29,UPI / Mobile Pay
+TXN-5208,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-05-06 04:00:00,Beauty & Personal Care,4,1307.67,Cash
+TXN-5388,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-05-06 07:00:00,Home & Lifestyle,3,6100.91,UPI / Mobile Pay
+TXN-5143,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-05-06 20:00:00,Electronics & Gadgets,3,21434.05,Debit Card
+TXN-5418,CUST-1074,Nikhil Verma,+91 95437 39699,nikhil.verma@example.com,2026-05-08 05:00:00,Home & Lifestyle,3,4758.16,Credit Card
+TXN-5265,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-05-08 20:00:00,Home & Lifestyle,4,1497.96,Cash
+TXN-5361,CUST-1064,Gaurav Taylor,+91 91147 51661,gaurav.taylor@example.com,2026-05-08 22:00:00,Apparel & Fashion,2,6389.44,Debit Card
+TXN-5032,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-05-09 14:00:00,Electronics & Gadgets,1,9889.31,UPI / Mobile Pay
+TXN-5132,CUST-1020,Aarav Chopra,+91 90835 78938,aarav.chopra@example.com,2026-05-13 02:00:00,Beauty & Personal Care,3,401.69,Credit Card
+TXN-5582,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-05-13 03:00:00,Home & Lifestyle,4,2117.87,UPI / Mobile Pay
+TXN-5349,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-05-13 03:00:00,Home & Lifestyle,4,814.93,UPI / Mobile Pay
+TXN-5617,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-05-13 15:00:00,Home & Lifestyle,2,4207.89,Cash
+TXN-5007,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-05-14 16:00:00,Home & Lifestyle,1,1108.58,UPI / Mobile Pay
+TXN-5239,CUST-1041,Pallavi Wilson,+91 92614 84503,pallavi.wilson@example.com,2026-05-14 22:00:00,Electronics & Gadgets,1,11407.15,Credit Card
+TXN-5267,CUST-1047,Vivek Singh,+91 95878 80175,vivek.singh@example.com,2026-05-16 02:00:00,Electronics & Gadgets,1,9540.95,Cash
+TXN-5069,CUST-1009,Varun Taylor,+91 98538 80654,varun.taylor@example.com,2026-05-16 02:00:00,Home & Lifestyle,3,1739.31,Cash
+TXN-5656,CUST-1117,Deepika Singh,+91 97165 66421,deepika.singh@example.com,2026-05-16 15:00:00,Beauty & Personal Care,4,592.76,UPI / Mobile Pay
+TXN-5340,CUST-1061,Rhea Anderson,+91 90816 65160,rhea.anderson@example.com,2026-05-18 00:00:00,Footwear & Accessories,3,2738.7,Credit Card
+TXN-5248,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-05-18 00:00:00,Home & Lifestyle,4,4547.33,Debit Card
+TXN-5407,CUST-1072,Karan Miller,+91 96215 57829,karan.miller@example.com,2026-05-18 22:00:00,Apparel & Fashion,2,5228.33,Debit Card
+TXN-5443,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-05-19 01:00:00,Home & Lifestyle,3,4879.97,Cash
+TXN-5387,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-05-19 19:00:00,Home & Lifestyle,1,3418.12,Debit Card
+TXN-5371,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-05-19 19:00:00,Beauty & Personal Care,1,1060.29,Debit Card
+TXN-5549,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-05-20 14:00:00,Home & Lifestyle,2,1043.59,Credit Card
+TXN-5173,CUST-1028,Sneha Gupta,+91 97732 86383,sneha.gupta@example.com,2026-05-20 19:00:00,Footwear & Accessories,1,4955.17,Credit Card
+TXN-5207,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-05-21 10:00:00,Beauty & Personal Care,4,2891.71,UPI / Mobile Pay
+TXN-5660,CUST-1118,Sunita Sharma,+91 96125 94627,sunita.sharma@example.com,2026-05-21 13:00:00,Home & Lifestyle,4,5178.87,UPI / Mobile Pay
+TXN-5055,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-05-21 15:00:00,Home & Lifestyle,2,3071.17,UPI / Mobile Pay
+TXN-5019,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-05-21 23:00:00,Apparel & Fashion,2,3676.04,Debit Card
+TXN-5269,CUST-1048,Emma Chopra,+91 99569 73120,emma.chopra@example.com,2026-05-23 05:00:00,Footwear & Accessories,3,3217.26,UPI / Mobile Pay
+TXN-5042,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-05-23 10:00:00,Beauty & Personal Care,2,3000.8,Credit Card
+TXN-5226,CUST-1039,Gaurav Sharma,+91 93149 36704,gaurav.sharma@example.com,2026-05-24 08:00:00,Beauty & Personal Care,1,2220.19,Debit Card
+TXN-5437,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-05-24 19:00:00,Apparel & Fashion,3,2709.4,Debit Card
+TXN-5285,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-05-25 18:00:00,Footwear & Accessories,2,5207.53,Cash
+TXN-5570,CUST-1102,Rhea Deshmukh,+91 98450 18635,rhea.deshmukh@example.com,2026-05-25 21:00:00,Beauty & Personal Care,4,981.36,UPI / Mobile Pay
+TXN-5561,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-05-26 00:00:00,Electronics & Gadgets,1,15528.95,Credit Card
+TXN-5581,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-05-26 03:00:00,Home & Lifestyle,1,3127.83,Debit Card
+TXN-5511,CUST-1089,Marcus Iyer,+91 94050 52421,marcus.iyer@example.com,2026-05-26 07:00:00,Electronics & Gadgets,3,7214.43,Cash
+TXN-5360,CUST-1064,Gaurav Taylor,+91 91147 51661,gaurav.taylor@example.com,2026-05-26 09:00:00,Beauty & Personal Care,4,1791.51,Cash
+TXN-5417,CUST-1074,Nikhil Verma,+91 95437 39699,nikhil.verma@example.com,2026-05-26 10:00:00,Electronics & Gadgets,3,3537.38,Cash
+TXN-5633,CUST-1112,Vivek Gupta,+91 97184 34659,vivek.gupta@example.com,2026-05-26 13:00:00,Beauty & Personal Care,1,2886.18,UPI / Mobile Pay
+TXN-5294,CUST-1052,Olivia Rao,+91 94612 63962,olivia.rao@example.com,2026-05-28 02:00:00,Footwear & Accessories,2,3965.39,Debit Card
+TXN-5184,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-05-28 19:00:00,Electronics & Gadgets,3,19397.65,Credit Card
+TXN-5264,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-05-29 00:00:00,Home & Lifestyle,1,1291.51,Cash
+TXN-5397,CUST-1069,Nikhil Iyer,+91 94976 59540,nikhil.iyer@example.com,2026-05-30 15:00:00,Beauty & Personal Care,4,714.03,Credit Card
+TXN-5110,CUST-1017,Anita Deshmukh,+91 98715 76628,anita.deshmukh@example.com,2026-05-31 09:00:00,Beauty & Personal Care,2,2399.02,Credit Card
+TXN-5142,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-06-01 01:00:00,Beauty & Personal Care,4,792.98,UPI / Mobile Pay
+TXN-5247,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-06-01 02:00:00,Home & Lifestyle,4,1006.73,Cash
+TXN-5104,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-06-01 06:00:00,Beauty & Personal Care,4,1378.52,Debit Card
+TXN-5254,CUST-1044,Kabir Bhatia,+91 96015 83229,kabir.bhatia@example.com,2026-06-01 07:00:00,Beauty & Personal Care,1,922.08,Cash
+TXN-5348,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-06-01 09:00:00,Electronics & Gadgets,2,20919.36,Cash
+TXN-5548,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-06-02 01:00:00,Home & Lifestyle,4,7432.32,Debit Card
+TXN-5277,CUST-1050,Vivek Verma,+91 96851 49237,vivek.verma@example.com,2026-06-03 15:00:00,Beauty & Personal Care,2,2097.08,Cash
+TXN-5031,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-06-03 18:00:00,Beauty & Personal Care,4,724.23,Credit Card
+TXN-5538,CUST-1097,Akash Gupta,+91 98982 94736,akash.gupta@example.com,2026-06-03 19:00:00,Footwear & Accessories,1,1620.1,UPI / Mobile Pay
+TXN-5406,CUST-1072,Karan Miller,+91 96215 57829,karan.miller@example.com,2026-06-04 08:00:00,Home & Lifestyle,2,5584.23,Cash
+TXN-5580,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-06-05 08:00:00,Home & Lifestyle,2,4765.12,UPI / Mobile Pay
+TXN-5413,CUST-1073,Divya Chopra,+91 90106 34186,divya.chopra@example.com,2026-06-05 19:00:00,Beauty & Personal Care,3,1211.31,Credit Card
+TXN-5507,CUST-1087,Marcus Patel,+91 99952 10412,marcus.patel@example.com,2026-06-05 21:00:00,Beauty & Personal Care,3,2214.42,Cash
+TXN-5386,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-06-06 02:00:00,Home & Lifestyle,3,5352.95,Debit Card
+TXN-5472,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-06-06 05:00:00,Footwear & Accessories,1,1659.46,Credit Card
+TXN-5436,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-06-06 23:00:00,Apparel & Fashion,3,8822.68,Debit Card
+TXN-5669,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-06-07 22:00:00,Beauty & Personal Care,2,1587.68,Credit Card
+TXN-5370,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-06-07 22:00:00,Home & Lifestyle,3,2915.1,Credit Card
+TXN-5018,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-06-08 02:00:00,Home & Lifestyle,4,6256.54,Cash
+TXN-5616,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-06-08 22:00:00,Home & Lifestyle,1,4523.88,Debit Card
+TXN-5123,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-06-09 12:00:00,Electronics & Gadgets,3,12271.99,UPI / Mobile Pay
+TXN-5594,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-06-09 16:00:00,Home & Lifestyle,3,1921.72,UPI / Mobile Pay
+TXN-5519,CUST-1092,Manish Miller,+91 97802 93230,manish.miller@example.com,2026-06-10 02:00:00,Electronics & Gadgets,3,6603.02,Cash
+TXN-5041,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-06-10 10:00:00,Home & Lifestyle,2,3117.02,Cash
+TXN-5525,CUST-1094,Pallavi Smith,+91 91601 48897,pallavi.smith@example.com,2026-06-11 02:00:00,Beauty & Personal Care,4,928.22,Cash
+TXN-5655,CUST-1117,Deepika Singh,+91 97165 66421,deepika.singh@example.com,2026-06-11 19:00:00,Beauty & Personal Care,4,1385.57,Debit Card
+TXN-5347,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-06-12 10:00:00,Beauty & Personal Care,2,2008.51,UPI / Mobile Pay
+TXN-5164,CUST-1026,Sunita Patel,+91 91909 29245,sunita.patel@example.com,2026-06-12 11:00:00,Footwear & Accessories,2,1491.66,UPI / Mobile Pay
+TXN-5659,CUST-1118,Sunita Sharma,+91 96125 94627,sunita.sharma@example.com,2026-06-12 16:00:00,Home & Lifestyle,3,3821.39,Cash
+TXN-5006,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-06-14 01:00:00,Home & Lifestyle,1,4759.82,Credit Card
+TXN-5206,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-06-14 21:00:00,Beauty & Personal Care,3,1129.98,Debit Card
+TXN-5092,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-06-15 07:00:00,Electronics & Gadgets,1,10847.02,UPI / Mobile Pay
+TXN-5284,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-06-15 22:00:00,Footwear & Accessories,4,5917.52,Debit Card
+TXN-5560,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-06-16 10:00:00,Electronics & Gadgets,2,14338.07,Cash
+TXN-5359,CUST-1064,Gaurav Taylor,+91 91147 51661,gaurav.taylor@example.com,2026-06-17 19:00:00,Apparel & Fashion,2,2573.16,UPI / Mobile Pay
+TXN-5416,CUST-1074,Nikhil Verma,+91 95437 39699,nikhil.verma@example.com,2026-06-17 19:00:00,Home & Lifestyle,2,3333.79,Debit Card
+TXN-5238,CUST-1041,Pallavi Wilson,+91 92614 84503,pallavi.wilson@example.com,2026-06-18 02:00:00,Electronics & Gadgets,1,9001.39,Cash
+TXN-5524,CUST-1093,Aarav Patel,+91 96376 60339,aarav.patel@example.com,2026-06-18 14:00:00,Apparel & Fashion,4,7603.98,Credit Card
+TXN-5396,CUST-1069,Nikhil Iyer,+91 94976 59540,nikhil.iyer@example.com,2026-06-18 15:00:00,Beauty & Personal Care,3,1632.77,UPI / Mobile Pay
+TXN-5435,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-06-19 08:00:00,Apparel & Fashion,3,1321.11,UPI / Mobile Pay
+TXN-5122,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-06-19 22:00:00,Electronics & Gadgets,2,8192.12,Debit Card
+TXN-5293,CUST-1052,Olivia Rao,+91 94612 63962,olivia.rao@example.com,2026-06-20 03:00:00,Footwear & Accessories,4,2722.74,Cash
+TXN-5141,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-06-20 05:00:00,Beauty & Personal Care,1,1493.29,Credit Card
+TXN-5442,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-06-20 07:00:00,Home & Lifestyle,1,1653.28,Credit Card
+TXN-5183,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-06-20 23:00:00,Home & Lifestyle,3,3978.02,Debit Card
+TXN-5339,CUST-1061,Rhea Anderson,+91 90816 65160,rhea.anderson@example.com,2026-06-21 03:00:00,Electronics & Gadgets,4,8978.86,UPI / Mobile Pay
+TXN-5225,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-06-21 07:00:00,Home & Lifestyle,1,2852.57,Credit Card
+TXN-5547,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-06-21 08:00:00,Apparel & Fashion,3,2011.5,UPI / Mobile Pay
+TXN-5609,CUST-1106,Siddharth Wilson,+91 98700 28379,siddharth.wilson@example.com,2026-06-21 13:00:00,Electronics & Gadgets,3,17640.1,Debit Card
+TXN-5054,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-06-21 21:00:00,Home & Lifestyle,2,4805.36,UPI / Mobile Pay
+TXN-5419,CUST-1075,Sunita Joshi,+91 96459 90061,sunita.joshi@example.com,2026-06-22 04:00:00,Apparel & Fashion,3,5028.2,Credit Card
+TXN-5569,CUST-1102,Rhea Deshmukh,+91 98450 18635,rhea.deshmukh@example.com,2026-06-22 08:00:00,Beauty & Personal Care,3,2359.57,UPI / Mobile Pay
+TXN-5246,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-06-23 03:00:00,Home & Lifestyle,2,3959.49,Debit Card
+TXN-5632,CUST-1112,Vivek Gupta,+91 97184 34659,vivek.gupta@example.com,2026-06-23 13:00:00,Home & Lifestyle,2,5101.99,UPI / Mobile Pay
+TXN-5103,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-06-23 15:00:00,Footwear & Accessories,2,2280.18,Credit Card
+TXN-5593,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-06-23 22:00:00,Footwear & Accessories,1,3994.3,Debit Card
+TXN-5385,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-06-24 04:00:00,Home & Lifestyle,4,5049.5,Credit Card
+TXN-5172,CUST-1028,Sneha Gupta,+91 97732 86383,sneha.gupta@example.com,2026-06-24 23:00:00,Footwear & Accessories,1,4949.51,Cash
+TXN-5668,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-06-25 03:00:00,Beauty & Personal Care,2,1901.91,UPI / Mobile Pay
+TXN-5030,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-06-25 05:00:00,Beauty & Personal Care,1,584.01,Credit Card
+TXN-5017,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-06-25 05:00:00,Apparel & Fashion,4,2222.79,Credit Card
+TXN-5235,CUST-1040,Varun Kapoor,+91 95131 32770,varun.kapoor@example.com,2026-06-25 23:00:00,Home & Lifestyle,1,4341.02,Credit Card
+TXN-5611,CUST-1108,Varun Singh,+91 96671 37892,varun.singh@example.com,2026-06-26 00:00:00,Apparel & Fashion,3,1482.9,Debit Card
+TXN-5276,CUST-1050,Vivek Verma,+91 96851 49237,vivek.verma@example.com,2026-06-27 15:00:00,Apparel & Fashion,1,5454.4,Debit Card
+TXN-5463,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-06-27 17:00:00,Beauty & Personal Care,4,3058.9,Credit Card
+TXN-5405,CUST-1072,Karan Miller,+91 96215 57829,karan.miller@example.com,2026-06-27 18:00:00,Home & Lifestyle,2,1955.65,Cash
+TXN-5537,CUST-1097,Akash Gupta,+91 98982 94736,akash.gupta@example.com,2026-06-27 19:00:00,Footwear & Accessories,2,2418.18,Cash
+TXN-5346,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-06-27 21:00:00,Electronics & Gadgets,3,16260.77,Cash
+TXN-5263,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-06-28 03:00:00,Home & Lifestyle,2,1424.15,Debit Card
+TXN-5412,CUST-1073,Divya Chopra,+91 90106 34186,divya.chopra@example.com,2026-06-28 07:00:00,Electronics & Gadgets,1,8939.38,Credit Card
+TXN-5109,CUST-1017,Anita Deshmukh,+91 98715 76628,anita.deshmukh@example.com,2026-06-28 18:00:00,Beauty & Personal Care,2,2163.5,UPI / Mobile Pay
+TXN-5674,CUST-1120,Priya Wilson,+91 90988 29417,priya.wilson@example.com,2026-06-28 20:00:00,Footwear & Accessories,3,2709.17,Cash
+TXN-5330,CUST-1058,Kavya Verma,+91 94352 61807,kavya.verma@example.com,2026-06-29 08:00:00,Footwear & Accessories,3,5790.21,Credit Card
+TXN-5579,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-06-29 08:00:00,Footwear & Accessories,1,2219.05,Debit Card
+TXN-5283,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-06-29 09:00:00,Footwear & Accessories,4,5859.62,UPI / Mobile Pay
+TXN-5205,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-06-29 09:00:00,Beauty & Personal Care,3,3324.93,Cash
+TXN-5040,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-06-29 14:00:00,Home & Lifestyle,3,4343.12,UPI / Mobile Pay
+TXN-5068,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-06-30 05:00:00,Beauty & Personal Care,4,904.97,Cash
+TXN-5133,CUST-1021,Karan Miller,+91 98049 55041,karan.miller@example.com,2026-06-30 06:00:00,Electronics & Gadgets,2,2100.1,Credit Card
+TXN-5615,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-06-30 23:00:00,Home & Lifestyle,2,4801.49,UPI / Mobile Pay
+TXN-5645,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-07-01 06:00:00,Electronics & Gadgets,2,17398.13,Cash
+TXN-5140,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-07-01 08:00:00,Beauty & Personal Care,4,3575.17,Debit Card
+TXN-5506,CUST-1087,Marcus Patel,+91 99952 10412,marcus.patel@example.com,2026-07-02 09:00:00,Beauty & Personal Care,3,2832.92,Cash
+TXN-5192,CUST-1032,Akash Patel,+91 96509 75509,akash.patel@example.com,2026-07-02 10:00:00,Apparel & Fashion,1,4668.27,UPI / Mobile Pay
+TXN-5091,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-07-02 10:00:00,Home & Lifestyle,2,7048.92,Cash
+TXN-5608,CUST-1106,Siddharth Wilson,+91 98700 28379,siddharth.wilson@example.com,2026-07-02 19:00:00,Electronics & Gadgets,3,3353.2,UPI / Mobile Pay
+TXN-5121,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-07-03 06:00:00,Electronics & Gadgets,4,24764.82,Cash
+TXN-5559,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-07-03 12:00:00,Electronics & Gadgets,4,16501.78,Cash
+TXN-5523,CUST-1093,Aarav Patel,+91 96376 60339,aarav.patel@example.com,2026-07-04 16:00:00,Apparel & Fashion,1,5291.08,Credit Card
+TXN-5658,CUST-1118,Sunita Sharma,+91 96125 94627,sunita.sharma@example.com,2026-07-04 21:00:00,Electronics & Gadgets,3,18797.87,Credit Card
+TXN-5345,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-07-04 23:00:00,Home & Lifestyle,3,2414.37,Credit Card
+TXN-5384,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-07-05 04:00:00,Home & Lifestyle,4,4050.66,Credit Card
+TXN-5357,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-07-05 22:00:00,Electronics & Gadgets,1,17497.7,Cash
+TXN-5005,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-07-06 08:00:00,Home & Lifestyle,3,2389.54,Credit Card
+TXN-5273,CUST-1049,Emma Kapoor,+91 93778 61263,emma.kapoor@example.com,2026-07-07 07:00:00,Beauty & Personal Care,1,1946.56,Cash
+TXN-5369,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-07-07 23:00:00,Electronics & Gadgets,3,9105.8,Cash
+TXN-5462,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-07-08 00:00:00,Beauty & Personal Care,3,2870.61,UPI / Mobile Pay
+TXN-5224,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-07-08 09:00:00,Electronics & Gadgets,1,9361.39,Credit Card
+TXN-5163,CUST-1026,Sunita Patel,+91 91909 29245,sunita.patel@example.com,2026-07-08 18:00:00,Footwear & Accessories,2,2134.09,UPI / Mobile Pay
+TXN-5415,CUST-1074,Nikhil Verma,+91 95437 39699,nikhil.verma@example.com,2026-07-08 23:00:00,Apparel & Fashion,2,972.11,Debit Card
+TXN-5654,CUST-1117,Deepika Singh,+91 97165 66421,deepika.singh@example.com,2026-07-09 02:00:00,Beauty & Personal Care,3,1763.16,UPI / Mobile Pay
+TXN-5603,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-07-09 03:00:00,Beauty & Personal Care,4,2307.3,UPI / Mobile Pay
+TXN-5530,CUST-1095,Divya Anderson,+91 98796 19896,divya.anderson@example.com,2026-07-09 06:00:00,Electronics & Gadgets,1,6001.02,Cash
+TXN-5245,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-07-09 14:00:00,Footwear & Accessories,3,5482.14,UPI / Mobile Pay
+TXN-5395,CUST-1069,Nikhil Iyer,+91 94976 59540,nikhil.iyer@example.com,2026-07-10 03:00:00,Footwear & Accessories,4,2084.3,Debit Card
+TXN-5471,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-07-10 05:00:00,Beauty & Personal Care,2,563.18,Credit Card
+TXN-5592,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-07-10 10:00:00,Home & Lifestyle,1,4309.37,Debit Card
+TXN-5546,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-07-10 20:00:00,Home & Lifestyle,4,5027.78,UPI / Mobile Pay
+TXN-5344,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-07-11 04:00:00,Electronics & Gadgets,3,13883.48,Cash
+TXN-5292,CUST-1052,Olivia Rao,+91 94612 63962,olivia.rao@example.com,2026-07-11 06:00:00,Footwear & Accessories,1,5929.47,Debit Card
+TXN-5434,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-07-11 10:00:00,Apparel & Fashion,4,3208.72,Credit Card
+TXN-5306,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-07-11 22:00:00,Apparel & Fashion,4,5510.61,Debit Card
+TXN-5336,CUST-1059,Noah Anderson,+91 93162 94547,noah.anderson@example.com,2026-07-11 22:00:00,Apparel & Fashion,1,4184.5,Cash
+TXN-5067,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-07-12 05:00:00,Electronics & Gadgets,2,3104.41,Debit Card
+TXN-5578,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-07-12 15:00:00,Home & Lifestyle,1,2073.84,Debit Card
+TXN-5404,CUST-1072,Karan Miller,+91 96215 57829,karan.miller@example.com,2026-07-13 18:00:00,Home & Lifestyle,4,5168.13,Cash
+TXN-5090,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-07-13 22:00:00,Apparel & Fashion,2,8421.88,Debit Card
+TXN-5182,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-07-14 05:00:00,Footwear & Accessories,2,3713.58,Credit Card
+TXN-5644,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-07-15 16:00:00,Electronics & Gadgets,1,23168.66,Cash
+TXN-5029,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-07-16 05:00:00,Beauty & Personal Care,4,1060.75,Debit Card
+TXN-5482,CUST-1083,Nikhil Miller,+91 98826 28961,nikhil.miller@example.com,2026-07-16 06:00:00,Apparel & Fashion,1,6707.52,Debit Card
+TXN-5500,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-07-16 12:00:00,Beauty & Personal Care,1,4045.17,UPI / Mobile Pay
+TXN-5383,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-07-16 14:00:00,Home & Lifestyle,2,2688.85,Debit Card
+TXN-5154,CUST-1023,Marcus Joshi,+91 92549 55413,marcus.joshi@example.com,2026-07-16 18:00:00,Beauty & Personal Care,1,1920.21,Debit Card
+TXN-5358,CUST-1064,Gaurav Taylor,+91 91147 51661,gaurav.taylor@example.com,2026-07-17 01:00:00,Apparel & Fashion,1,6272.4,Cash
+TXN-5016,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-07-17 17:00:00,Home & Lifestyle,4,3043.87,Debit Card
+TXN-5204,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-07-17 21:00:00,Beauty & Personal Care,1,908.08,Cash
+TXN-5234,CUST-1040,Varun Kapoor,+91 95131 32770,varun.kapoor@example.com,2026-07-18 00:00:00,Beauty & Personal Care,1,2659.83,Credit Card
+TXN-5667,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-07-18 04:00:00,Beauty & Personal Care,2,1174.8,UPI / Mobile Pay
+TXN-5262,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-07-18 05:00:00,Home & Lifestyle,2,2468.13,UPI / Mobile Pay
+TXN-5237,CUST-1041,Pallavi Wilson,+91 92614 84503,pallavi.wilson@example.com,2026-07-18 13:00:00,Electronics & Gadgets,2,9364.19,Debit Card
+TXN-5275,CUST-1050,Vivek Verma,+91 96851 49237,vivek.verma@example.com,2026-07-18 21:00:00,Apparel & Fashion,2,3526.47,Credit Card
+TXN-5614,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-07-19 01:00:00,Home & Lifestyle,2,2416.88,Cash
+TXN-5545,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-07-19 01:00:00,Footwear & Accessories,2,1996.1,Credit Card
+TXN-5329,CUST-1058,Kavya Verma,+91 94352 61807,kavya.verma@example.com,2026-07-19 14:00:00,Footwear & Accessories,1,2063.53,Credit Card
+TXN-5108,CUST-1017,Anita Deshmukh,+91 98715 76628,anita.deshmukh@example.com,2026-07-20 00:00:00,Beauty & Personal Care,4,1895.04,Cash
+TXN-5102,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-07-20 03:00:00,Beauty & Personal Care,2,898.41,UPI / Mobile Pay
+TXN-5053,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-07-20 07:00:00,Beauty & Personal Care,2,1228.41,Cash
+TXN-5120,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-07-20 07:00:00,Electronics & Gadgets,4,3202.41,Cash
+TXN-5191,CUST-1032,Akash Patel,+91 96509 75509,akash.patel@example.com,2026-07-20 15:00:00,Electronics & Gadgets,2,19141.29,UPI / Mobile Pay
+TXN-5039,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-07-20 21:00:00,Home & Lifestyle,3,2471.3,Cash
+TXN-5066,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-07-21 05:00:00,Footwear & Accessories,1,2564.0,UPI / Mobile Pay
+TXN-5411,CUST-1073,Divya Chopra,+91 90106 34186,divya.chopra@example.com,2026-07-21 10:00:00,Beauty & Personal Care,3,2462.49,Debit Card
+TXN-5602,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-07-21 10:00:00,Beauty & Personal Care,3,2964.18,Debit Card
+TXN-5441,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-07-21 13:00:00,Home & Lifestyle,4,1438.92,UPI / Mobile Pay
+TXN-5568,CUST-1102,Rhea Deshmukh,+91 98450 18635,rhea.deshmukh@example.com,2026-07-21 18:00:00,Beauty & Personal Care,3,2104.85,UPI / Mobile Pay
+TXN-5282,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-07-21 20:00:00,Footwear & Accessories,2,3617.64,UPI / Mobile Pay
+TXN-5522,CUST-1093,Aarav Patel,+91 96376 60339,aarav.patel@example.com,2026-07-21 20:00:00,Apparel & Fashion,3,3622.92,Credit Card
+TXN-5244,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-07-21 23:00:00,Home & Lifestyle,4,3028.2,Credit Card
+TXN-5171,CUST-1028,Sneha Gupta,+91 97732 86383,sneha.gupta@example.com,2026-07-22 07:00:00,Electronics & Gadgets,3,10087.51,Cash
+TXN-5305,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-07-22 07:00:00,Apparel & Fashion,2,6283.62,UPI / Mobile Pay
+TXN-5607,CUST-1106,Siddharth Wilson,+91 98700 28379,siddharth.wilson@example.com,2026-07-23 07:00:00,Footwear & Accessories,3,3886.0,UPI / Mobile Pay
+TXN-5326,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-07-23 08:00:00,Footwear & Accessories,3,4408.65,Debit Card
+TXN-5505,CUST-1087,Marcus Patel,+91 99952 10412,marcus.patel@example.com,2026-07-23 09:00:00,Beauty & Personal Care,1,934.4,Debit Card
+TXN-5631,CUST-1112,Vivek Gupta,+91 97184 34659,vivek.gupta@example.com,2026-07-23 21:00:00,Home & Lifestyle,1,2625.73,Cash
+TXN-5536,CUST-1097,Akash Gupta,+91 98982 94736,akash.gupta@example.com,2026-07-24 04:00:00,Footwear & Accessories,4,4827.38,Credit Card
+TXN-5433,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-07-24 12:00:00,Apparel & Fashion,1,8756.8,UPI / Mobile Pay
+TXN-5343,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-07-24 12:00:00,Electronics & Gadgets,4,11426.83,Debit Card
+TXN-5089,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-07-25 08:00:00,Home & Lifestyle,2,6591.63,UPI / Mobile Pay
+TXN-5461,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-07-25 11:00:00,Beauty & Personal Care,2,1603.36,Debit Card
+TXN-5139,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-07-25 14:00:00,Beauty & Personal Care,2,2099.45,Debit Card
+TXN-5499,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-07-26 00:00:00,Beauty & Personal Care,3,1907.89,Cash
+TXN-5356,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-07-26 10:00:00,Electronics & Gadgets,3,7819.42,Credit Card
+TXN-5272,CUST-1049,Emma Kapoor,+91 93778 61263,emma.kapoor@example.com,2026-07-26 14:00:00,Beauty & Personal Care,1,1073.86,Cash
+TXN-5510,CUST-1088,Kavya Singh,+91 90031 48793,kavya.singh@example.com,2026-07-26 18:00:00,Apparel & Fashion,3,2756.24,Cash
+TXN-5591,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-07-27 17:00:00,Home & Lifestyle,2,4865.68,Cash
+TXN-5657,CUST-1118,Sunita Sharma,+91 96125 94627,sunita.sharma@example.com,2026-07-29 01:00:00,Home & Lifestyle,3,3403.61,Credit Card
+TXN-5119,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-07-29 10:00:00,Electronics & Gadgets,3,3924.14,UPI / Mobile Pay
+TXN-5223,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-07-29 13:00:00,Apparel & Fashion,4,1119.94,Cash
+TXN-5304,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-07-29 16:00:00,Apparel & Fashion,4,9791.5,UPI / Mobile Pay
+TXN-5673,CUST-1120,Priya Wilson,+91 90988 29417,priya.wilson@example.com,2026-07-29 20:00:00,Footwear & Accessories,2,5489.55,Debit Card
+TXN-5325,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-07-30 11:00:00,Footwear & Accessories,1,2852.49,Credit Card
+TXN-5382,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-07-30 21:00:00,Home & Lifestyle,1,991.57,Debit Card
+TXN-5577,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-07-30 23:00:00,Home & Lifestyle,4,6257.8,Cash
+TXN-5643,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-07-31 01:00:00,Footwear & Accessories,3,8196.33,Credit Card
+TXN-5558,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-08-01 00:00:00,Electronics & Gadgets,3,18657.34,Cash
+TXN-5613,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-08-02 03:00:00,Home & Lifestyle,4,1349.47,Credit Card
+TXN-5335,CUST-1059,Noah Anderson,+91 93162 94547,noah.anderson@example.com,2026-08-02 06:00:00,Apparel & Fashion,4,1526.9,UPI / Mobile Pay
+TXN-5088,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-08-02 11:00:00,Home & Lifestyle,4,2735.62,Debit Card
+TXN-5291,CUST-1052,Olivia Rao,+91 94612 63962,olivia.rao@example.com,2026-08-02 15:00:00,Apparel & Fashion,3,3429.17,Debit Card
+TXN-5216,CUST-1036,Deepika Chopra,+91 98572 26639,deepika.chopra@example.com,2026-08-02 18:00:00,Beauty & Personal Care,2,696.12,Debit Card
+TXN-5521,CUST-1093,Aarav Patel,+91 96376 60339,aarav.patel@example.com,2026-08-02 23:00:00,Apparel & Fashion,4,2918.45,Credit Card
+TXN-5414,CUST-1074,Nikhil Verma,+91 95437 39699,nikhil.verma@example.com,2026-08-03 01:00:00,Apparel & Fashion,4,7487.78,UPI / Mobile Pay
+TXN-5312,CUST-1055,Divya Bhatia,+91 94275 71507,divya.bhatia@example.com,2026-08-03 13:00:00,Apparel & Fashion,2,5470.79,Debit Card
+TXN-5601,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-08-03 18:00:00,Beauty & Personal Care,4,928.37,UPI / Mobile Pay
+TXN-5403,CUST-1072,Karan Miller,+91 96215 57829,karan.miller@example.com,2026-08-04 03:00:00,Home & Lifestyle,3,5247.8,UPI / Mobile Pay
+TXN-5274,CUST-1050,Vivek Verma,+91 96851 49237,vivek.verma@example.com,2026-08-04 07:00:00,Apparel & Fashion,4,5457.4,Credit Card
+TXN-5544,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-08-04 09:00:00,Home & Lifestyle,2,7072.67,Debit Card
+TXN-5162,CUST-1026,Sunita Patel,+91 91909 29245,sunita.patel@example.com,2026-08-05 03:00:00,Beauty & Personal Care,2,1176.82,UPI / Mobile Pay
+TXN-5261,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-08-05 07:00:00,Home & Lifestyle,2,3868.48,Debit Card
+TXN-5394,CUST-1069,Nikhil Iyer,+91 94976 59540,nikhil.iyer@example.com,2026-08-05 07:00:00,Beauty & Personal Care,3,1464.25,Debit Card
+TXN-5498,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-08-05 10:00:00,Beauty & Personal Care,1,2922.17,Cash
+TXN-5606,CUST-1106,Siddharth Wilson,+91 98700 28379,siddharth.wilson@example.com,2026-08-05 14:00:00,Electronics & Gadgets,4,13882.0,Credit Card
+TXN-5432,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-08-05 14:00:00,Apparel & Fashion,2,2372.46,UPI / Mobile Pay
+TXN-5197,CUST-1033,Pooja Singh,+91 95771 55918,pooja.singh@example.com,2026-08-05 23:00:00,Home & Lifestyle,4,1561.98,Cash
+TXN-5038,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-08-07 07:00:00,Home & Lifestyle,4,1949.73,Cash
+TXN-5087,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-08-07 13:00:00,Home & Lifestyle,1,4813.69,Credit Card
+TXN-5065,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-08-07 13:00:00,Home & Lifestyle,4,5088.21,UPI / Mobile Pay
+TXN-5529,CUST-1095,Divya Anderson,+91 98796 19896,divya.anderson@example.com,2026-08-07 15:00:00,Electronics & Gadgets,1,6369.13,Credit Card
+TXN-5153,CUST-1023,Marcus Joshi,+91 92549 55413,marcus.joshi@example.com,2026-08-07 22:00:00,Home & Lifestyle,1,3450.84,Cash
+TXN-5653,CUST-1117,Deepika Singh,+91 97165 66421,deepika.singh@example.com,2026-08-08 02:00:00,Electronics & Gadgets,2,14106.65,UPI / Mobile Pay
+TXN-5625,CUST-1110,Ishita Singh,+91 91422 27296,ishita.singh@example.com,2026-08-08 04:00:00,Apparel & Fashion,3,4025.98,Cash
+TXN-5004,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-08-08 08:00:00,Home & Lifestyle,2,1790.71,Debit Card
+TXN-5078,CUST-1011,Suresh Sharma,+91 96947 11750,suresh.sharma@example.com,2026-08-08 12:00:00,Footwear & Accessories,3,3084.7,Debit Card
+TXN-5368,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-08-08 23:00:00,Electronics & Gadgets,3,6224.54,UPI / Mobile Pay
+TXN-5203,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-08-09 01:00:00,Footwear & Accessories,2,4440.61,Credit Card
+TXN-5233,CUST-1040,Varun Kapoor,+91 95131 32770,varun.kapoor@example.com,2026-08-09 02:00:00,Apparel & Fashion,1,6206.35,Debit Card
+TXN-5303,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-08-09 02:00:00,Apparel & Fashion,3,4381.93,UPI / Mobile Pay
+TXN-5028,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-08-09 08:00:00,Beauty & Personal Care,1,1061.15,Debit Card
+TXN-5460,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-08-09 14:00:00,Beauty & Personal Care,1,2026.77,Debit Card
+TXN-5576,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-08-10 07:00:00,Home & Lifestyle,2,1725.54,Debit Card
+TXN-5181,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-08-10 08:00:00,Electronics & Gadgets,4,14288.39,UPI / Mobile Pay
+TXN-5481,CUST-1083,Nikhil Miller,+91 98826 28961,nikhil.miller@example.com,2026-08-10 13:00:00,Electronics & Gadgets,2,4765.68,UPI / Mobile Pay
+TXN-5666,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-08-10 14:00:00,Beauty & Personal Care,3,2132.66,Debit Card
+TXN-5342,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-08-10 21:00:00,Home & Lifestyle,2,4226.15,Credit Card
+TXN-5190,CUST-1032,Akash Patel,+91 96509 75509,akash.patel@example.com,2026-08-10 22:00:00,Apparel & Fashion,4,3585.35,UPI / Mobile Pay
+TXN-5355,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-08-11 13:00:00,Electronics & Gadgets,3,7105.8,Debit Card
+TXN-5470,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-08-11 16:00:00,Footwear & Accessories,1,3113.18,UPI / Mobile Pay
+TXN-5431,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-08-11 18:00:00,Apparel & Fashion,2,4259.79,Credit Card
+TXN-5590,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-08-11 19:00:00,Home & Lifestyle,3,5241.49,Cash
+TXN-5381,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-08-12 09:00:00,Home & Lifestyle,2,7126.67,UPI / Mobile Pay
+TXN-5281,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-08-13 01:00:00,Footwear & Accessories,3,2942.07,Cash
+TXN-5101,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-08-13 03:00:00,Electronics & Gadgets,2,4939.2,UPI / Mobile Pay
+TXN-5324,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-08-13 13:00:00,Home & Lifestyle,3,4785.67,Credit Card
+TXN-5170,CUST-1028,Sneha Gupta,+91 97732 86383,sneha.gupta@example.com,2026-08-13 14:00:00,Footwear & Accessories,4,1375.06,Debit Card
+TXN-5015,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-08-14 03:00:00,Home & Lifestyle,4,1906.01,Credit Card
+TXN-5243,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-08-14 08:00:00,Home & Lifestyle,1,5293.73,Debit Card
+TXN-5328,CUST-1058,Kavya Verma,+91 94352 61807,kavya.verma@example.com,2026-08-14 18:00:00,Footwear & Accessories,1,4027.75,Cash
+TXN-5497,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-08-14 19:00:00,Beauty & Personal Care,4,2418.3,Credit Card
+TXN-5222,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-08-14 20:00:00,Electronics & Gadgets,2,13118.85,Credit Card
+TXN-5271,CUST-1049,Emma Kapoor,+91 93778 61263,emma.kapoor@example.com,2026-08-14 21:00:00,Apparel & Fashion,4,6265.84,Cash
+TXN-5236,CUST-1041,Pallavi Wilson,+91 92614 84503,pallavi.wilson@example.com,2026-08-15 01:00:00,Home & Lifestyle,2,2085.05,Cash
+TXN-5605,CUST-1106,Siddharth Wilson,+91 98700 28379,siddharth.wilson@example.com,2026-08-15 19:00:00,Electronics & Gadgets,4,8796.06,Debit Card
+TXN-5086,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-08-16 00:00:00,Footwear & Accessories,4,2299.42,Cash
+TXN-5535,CUST-1097,Akash Gupta,+91 98982 94736,akash.gupta@example.com,2026-08-16 13:00:00,Beauty & Personal Care,3,1686.21,UPI / Mobile Pay
+TXN-5118,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-08-16 13:00:00,Electronics & Gadgets,3,28133.88,Debit Card
+TXN-5504,CUST-1087,Marcus Patel,+91 99952 10412,marcus.patel@example.com,2026-08-16 20:00:00,Beauty & Personal Care,3,2137.85,Credit Card
+TXN-5138,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-08-17 00:00:00,Beauty & Personal Care,1,4154.11,UPI / Mobile Pay
+TXN-5131,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-08-17 03:00:00,Footwear & Accessories,2,2752.61,Credit Card
+TXN-5334,CUST-1059,Noah Anderson,+91 93162 94547,noah.anderson@example.com,2026-08-17 16:00:00,Apparel & Fashion,4,3698.8,Credit Card
+TXN-5302,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-08-18 03:00:00,Apparel & Fashion,1,1336.47,UPI / Mobile Pay
+TXN-5196,CUST-1033,Pooja Singh,+91 95771 55918,pooja.singh@example.com,2026-08-18 06:00:00,Electronics & Gadgets,3,16447.14,UPI / Mobile Pay
+TXN-5516,CUST-1090,Priya Wilson,+91 93390 62090,priya.wilson@example.com,2026-08-18 07:00:00,Beauty & Personal Care,4,1161.9,Debit Card
+TXN-5600,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-08-19 18:00:00,Beauty & Personal Care,3,2438.13,Debit Card
+TXN-5589,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-08-20 23:00:00,Home & Lifestyle,4,5917.38,Cash
+TXN-5052,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-08-21 09:00:00,Home & Lifestyle,1,4733.64,UPI / Mobile Pay
+TXN-5410,CUST-1073,Divya Chopra,+91 90106 34186,divya.chopra@example.com,2026-08-21 15:00:00,Beauty & Personal Care,2,955.57,Debit Card
+TXN-5520,CUST-1093,Aarav Patel,+91 96376 60339,aarav.patel@example.com,2026-08-22 08:00:00,Apparel & Fashion,2,5752.86,Credit Card
+TXN-5354,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-08-22 13:00:00,Footwear & Accessories,4,1081.25,Debit Card
+TXN-5380,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-08-22 17:00:00,Home & Lifestyle,4,1633.28,UPI / Mobile Pay
+TXN-5402,CUST-1072,Karan Miller,+91 96215 57829,karan.miller@example.com,2026-08-23 05:00:00,Home & Lifestyle,2,2189.63,Credit Card
+TXN-5496,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-08-23 07:00:00,Beauty & Personal Care,3,856.31,Debit Card
+TXN-5075,CUST-1010,Vikram Anderson,+91 96770 79393,vikram.anderson@example.com,2026-08-23 08:00:00,Footwear & Accessories,1,1135.17,Cash
+TXN-5612,CUST-1109,Liam Joshi,+91 99201 56636,liam.joshi@example.com,2026-08-24 03:00:00,Home & Lifestyle,3,3385.14,Cash
+TXN-5630,CUST-1112,Vivek Gupta,+91 97184 34659,vivek.gupta@example.com,2026-08-24 05:00:00,Home & Lifestyle,2,2057.23,Credit Card
+TXN-5430,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-08-24 06:00:00,Apparel & Fashion,2,5502.99,Credit Card
+TXN-5480,CUST-1083,Nikhil Miller,+91 98826 28961,nikhil.miller@example.com,2026-08-24 17:00:00,Beauty & Personal Care,1,2573.74,Credit Card
+TXN-5543,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-08-24 19:00:00,Home & Lifestyle,1,2582.33,Credit Card
+TXN-5323,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-08-25 16:00:00,Footwear & Accessories,3,1812.45,UPI / Mobile Pay
+TXN-5290,CUST-1052,Olivia Rao,+91 94612 63962,olivia.rao@example.com,2026-08-25 17:00:00,Footwear & Accessories,4,3635.78,Credit Card
+TXN-5064,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-08-26 00:00:00,Beauty & Personal Care,4,1758.31,UPI / Mobile Pay
+TXN-5152,CUST-1023,Marcus Joshi,+91 92549 55413,marcus.joshi@example.com,2026-08-26 07:00:00,Home & Lifestyle,1,2145.4,Credit Card
+TXN-5202,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-08-26 07:00:00,Beauty & Personal Care,3,2218.53,Cash
+TXN-5301,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-08-26 10:00:00,Electronics & Gadgets,3,5467.49,Debit Card
+TXN-5672,CUST-1120,Priya Wilson,+91 90988 29417,priya.wilson@example.com,2026-08-27 01:00:00,Footwear & Accessories,2,1401.78,Debit Card
+TXN-5557,CUST-1101,Juhi Verma,+91 97816 89098,juhi.verma@example.com,2026-08-27 03:00:00,Electronics & Gadgets,3,8628.03,Cash
+TXN-5027,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-08-27 14:00:00,Beauty & Personal Care,1,1876.91,UPI / Mobile Pay
+TXN-5130,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-08-27 15:00:00,Home & Lifestyle,2,5663.37,Debit Card
+TXN-5117,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-08-27 19:00:00,Electronics & Gadgets,3,6800.58,Debit Card
+TXN-5459,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-08-27 23:00:00,Beauty & Personal Care,2,2958.79,Cash
+TXN-5567,CUST-1102,Rhea Deshmukh,+91 98450 18635,rhea.deshmukh@example.com,2026-08-27 23:00:00,Electronics & Gadgets,3,4150.92,Debit Card
+TXN-5014,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-08-28 04:00:00,Home & Lifestyle,3,2404.52,UPI / Mobile Pay
+TXN-5341,CUST-1062,Vivek Wilson,+91 94002 37596,vivek.wilson@example.com,2026-08-28 07:00:00,Electronics & Gadgets,4,10292.07,Cash
+TXN-5260,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-08-28 08:00:00,Home & Lifestyle,3,5046.7,UPI / Mobile Pay
+TXN-5642,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-08-28 08:00:00,Electronics & Gadgets,2,5188.98,Debit Card
+TXN-5085,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-08-29 07:00:00,Home & Lifestyle,1,4890.25,UPI / Mobile Pay
+TXN-5495,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-08-29 11:00:00,Beauty & Personal Care,3,3088.52,Credit Card
+TXN-5322,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-08-29 21:00:00,Footwear & Accessories,4,3108.14,Cash
+TXN-5367,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-08-30 00:00:00,Electronics & Gadgets,2,14743.09,Debit Card
+TXN-5588,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-08-30 04:00:00,Footwear & Accessories,2,4997.47,Cash
+TXN-5624,CUST-1110,Ishita Singh,+91 91422 27296,ishita.singh@example.com,2026-08-30 08:00:00,Apparel & Fashion,1,6984.38,Credit Card
+TXN-5280,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-08-30 09:00:00,Footwear & Accessories,1,4783.03,UPI / Mobile Pay
+TXN-5100,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-08-30 13:00:00,Beauty & Personal Care,3,1807.59,Cash
+TXN-5575,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-08-30 16:00:00,Home & Lifestyle,1,4013.43,Debit Card
+TXN-5528,CUST-1095,Divya Anderson,+91 98796 19896,divya.anderson@example.com,2026-08-30 18:00:00,Electronics & Gadgets,3,19696.05,Debit Card
+TXN-5221,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-08-31 00:00:00,Beauty & Personal Care,2,2723.62,Cash
+TXN-5161,CUST-1026,Sunita Patel,+91 91909 29245,sunita.patel@example.com,2026-08-31 09:00:00,Footwear & Accessories,3,3771.93,Credit Card
+TXN-5189,CUST-1032,Akash Patel,+91 96509 75509,akash.patel@example.com,2026-09-01 00:00:00,Apparel & Fashion,3,5906.42,UPI / Mobile Pay
+TXN-5604,CUST-1106,Siddharth Wilson,+91 98700 28379,siddharth.wilson@example.com,2026-09-01 03:00:00,Electronics & Gadgets,4,2120.81,UPI / Mobile Pay
+TXN-5037,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-09-01 08:00:00,Home & Lifestyle,3,6394.67,Cash
+TXN-5534,CUST-1097,Akash Gupta,+91 98982 94736,akash.gupta@example.com,2026-09-01 13:00:00,Footwear & Accessories,3,2887.31,Cash
+TXN-5440,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-09-01 18:00:00,Home & Lifestyle,1,3607.01,Cash
+TXN-5300,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-09-01 19:00:00,Apparel & Fashion,3,9301.72,UPI / Mobile Pay
+TXN-5353,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-09-01 22:00:00,Electronics & Gadgets,4,5436.05,Credit Card
+TXN-5652,CUST-1117,Deepika Singh,+91 97165 66421,deepika.singh@example.com,2026-09-02 02:00:00,Beauty & Personal Care,1,1208.82,Credit Card
+TXN-5665,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-09-02 17:00:00,Beauty & Personal Care,4,2823.7,Debit Card
+TXN-5454,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-09-02 18:00:00,Electronics & Gadgets,3,15329.04,Debit Card
+TXN-5503,CUST-1087,Marcus Patel,+91 99952 10412,marcus.patel@example.com,2026-09-02 21:00:00,Beauty & Personal Care,3,2110.79,UPI / Mobile Pay
+TXN-5327,CUST-1058,Kavya Verma,+91 94352 61807,kavya.verma@example.com,2026-09-03 04:00:00,Footwear & Accessories,4,3986.82,Cash
+TXN-5242,CUST-1042,Akash Kapoor,+91 96856 74572,akash.kapoor@example.com,2026-09-03 08:00:00,Home & Lifestyle,4,1796.72,Debit Card
+TXN-5195,CUST-1033,Pooja Singh,+91 95771 55918,pooja.singh@example.com,2026-09-03 15:00:00,Home & Lifestyle,4,907.77,Debit Card
+TXN-5137,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-09-04 00:00:00,Beauty & Personal Care,4,844.84,Cash
+TXN-5599,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-09-04 18:00:00,Apparel & Fashion,2,4530.98,Cash
+TXN-5321,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-09-04 21:00:00,Footwear & Accessories,3,7793.27,Cash
+TXN-5270,CUST-1049,Emma Kapoor,+91 93778 61263,emma.kapoor@example.com,2026-09-05 09:00:00,Beauty & Personal Care,1,1594.11,Debit Card
+TXN-5232,CUST-1040,Varun Kapoor,+91 95131 32770,varun.kapoor@example.com,2026-09-05 12:00:00,Beauty & Personal Care,1,2765.93,Debit Card
+TXN-5180,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-09-05 13:00:00,Electronics & Gadgets,1,4424.51,Debit Card
+TXN-5429,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-09-05 13:00:00,Apparel & Fashion,4,2706.79,Debit Card
+TXN-5188,CUST-1031,Aarav Reddy,+91 98373 96618,aarav.reddy@example.com,2026-09-05 15:00:00,Footwear & Accessories,4,3069.73,UPI / Mobile Pay
+TXN-5157,CUST-1024,Kabir Nair,+91 99276 60998,kabir.nair@example.com,2026-09-05 18:00:00,Home & Lifestyle,3,3220.23,Cash
+TXN-5129,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-09-05 22:00:00,Footwear & Accessories,2,7201.11,Cash
+TXN-5084,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-09-07 16:00:00,Home & Lifestyle,4,4818.44,Cash
+TXN-5003,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-09-07 19:00:00,Apparel & Fashion,2,4634.43,Debit Card
+TXN-5379,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-09-08 05:00:00,Home & Lifestyle,2,3892.75,Credit Card
+TXN-5333,CUST-1059,Noah Anderson,+91 93162 94547,noah.anderson@example.com,2026-09-08 17:00:00,Apparel & Fashion,1,6171.87,Debit Card
+TXN-5494,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-09-08 20:00:00,Home & Lifestyle,4,5507.41,Credit Card
+TXN-5488,CUST-1085,Rahul Malhotra,+91 92566 98783,rahul.malhotra@example.com,2026-09-08 21:00:00,Apparel & Fashion,1,2564.75,Cash
+TXN-5542,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-09-09 21:00:00,Home & Lifestyle,4,5200.21,Cash
+TXN-5509,CUST-1088,Kavya Singh,+91 90031 48793,kavya.singh@example.com,2026-09-09 22:00:00,Apparel & Fashion,2,3752.01,Cash
+TXN-5515,CUST-1090,Priya Wilson,+91 93390 62090,priya.wilson@example.com,2026-09-10 13:00:00,Home & Lifestyle,2,4255.14,UPI / Mobile Pay
+TXN-5587,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-09-10 14:00:00,Home & Lifestyle,4,4229.44,Debit Card
+TXN-5289,CUST-1052,Olivia Rao,+91 94612 63962,olivia.rao@example.com,2026-09-10 18:00:00,Footwear & Accessories,4,1873.4,Debit Card
+TXN-5299,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-09-10 23:00:00,Home & Lifestyle,3,5264.57,Debit Card
+TXN-5063,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-09-11 03:00:00,Beauty & Personal Care,4,544.08,Cash
+TXN-5309,CUST-1054,Vivek Miller,+91 99484 10756,vivek.miller@example.com,2026-09-11 15:00:00,Footwear & Accessories,2,1762.9,Credit Card
+TXN-5623,CUST-1110,Ishita Singh,+91 91422 27296,ishita.singh@example.com,2026-09-11 16:00:00,Apparel & Fashion,4,2294.99,Cash
+TXN-5215,CUST-1036,Deepika Chopra,+91 98572 26639,deepika.chopra@example.com,2026-09-12 02:00:00,Beauty & Personal Care,3,768.43,Debit Card
+TXN-5453,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-09-12 03:00:00,Electronics & Gadgets,4,18626.5,UPI / Mobile Pay
+TXN-5201,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-09-12 19:00:00,Beauty & Personal Care,4,3176.56,Cash
+TXN-5116,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-09-13 03:00:00,Electronics & Gadgets,3,16342.94,Cash
+TXN-5151,CUST-1023,Marcus Joshi,+91 92549 55413,marcus.joshi@example.com,2026-09-13 10:00:00,Home & Lifestyle,1,4597.58,Debit Card
+TXN-5169,CUST-1028,Sneha Gupta,+91 97732 86383,sneha.gupta@example.com,2026-09-13 20:00:00,Footwear & Accessories,2,2425.64,Credit Card
+TXN-5479,CUST-1083,Nikhil Miller,+91 98826 28961,nikhil.miller@example.com,2026-09-15 04:00:00,Apparel & Fashion,2,5327.43,UPI / Mobile Pay
+TXN-5320,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-09-15 08:00:00,Footwear & Accessories,2,1441.64,Debit Card
+TXN-5458,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-09-15 09:00:00,Home & Lifestyle,3,4467.21,Debit Card
+TXN-5574,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-09-15 20:00:00,Home & Lifestyle,4,1054.62,Credit Card
+TXN-5409,CUST-1073,Divya Chopra,+91 90106 34186,divya.chopra@example.com,2026-09-15 21:00:00,Beauty & Personal Care,2,2172.62,UPI / Mobile Pay
+TXN-5311,CUST-1055,Divya Bhatia,+91 94275 71507,divya.bhatia@example.com,2026-09-15 22:00:00,Footwear & Accessories,4,3330.68,Cash
+TXN-5641,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-09-16 12:00:00,Electronics & Gadgets,2,24024.26,Cash
+TXN-5259,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-09-16 15:00:00,Home & Lifestyle,2,1435.9,Cash
+TXN-5013,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-09-16 15:00:00,Apparel & Fashion,1,2343.17,Cash
+TXN-5469,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-09-16 19:00:00,Footwear & Accessories,3,2407.37,Cash
+TXN-5428,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-09-16 20:00:00,Apparel & Fashion,4,2831.1,Cash
+TXN-5024,CUST-1003,Sneha Nair,+91 91542 39305,sneha.nair@example.com,2026-09-18 02:00:00,Footwear & Accessories,1,4747.37,Credit Card
+TXN-5598,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-09-18 05:00:00,Home & Lifestyle,4,4414.1,Cash
+TXN-5136,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-09-18 09:00:00,Beauty & Personal Care,3,1719.96,Credit Card
+TXN-5664,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-09-19 03:00:00,Beauty & Personal Care,1,3122.48,Debit Card
+TXN-5378,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-09-19 12:00:00,Home & Lifestyle,2,3327.63,UPI / Mobile Pay
+TXN-5279,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-09-19 16:00:00,Footwear & Accessories,3,2315.86,Cash
+TXN-5099,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-09-19 18:00:00,Beauty & Personal Care,2,529.59,UPI / Mobile Pay
+TXN-5533,CUST-1097,Akash Gupta,+91 98982 94736,akash.gupta@example.com,2026-09-20 17:00:00,Footwear & Accessories,1,2588.0,Cash
+TXN-5077,CUST-1011,Suresh Sharma,+91 96947 11750,suresh.sharma@example.com,2026-09-20 20:00:00,Apparel & Fashion,4,5590.0,Debit Card
+TXN-5096,CUST-1014,Olivia Deshmukh,+91 91171 12245,olivia.deshmukh@example.com,2026-09-20 23:00:00,Home & Lifestyle,3,4265.85,Credit Card
+TXN-5622,CUST-1110,Ishita Singh,+91 91422 27296,ishita.singh@example.com,2026-09-21 02:00:00,Apparel & Fashion,4,956.02,Cash
+TXN-5671,CUST-1120,Priya Wilson,+91 90988 29417,priya.wilson@example.com,2026-09-21 07:00:00,Footwear & Accessories,3,3663.83,Credit Card
+TXN-5493,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-09-21 07:00:00,Beauty & Personal Care,2,1415.86,Cash
+TXN-5424,CUST-1076,Juhi Miller,+91 90855 91659,juhi.miller@example.com,2026-09-21 14:00:00,Footwear & Accessories,2,2179.42,Credit Card
+TXN-5083,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-09-21 17:00:00,Beauty & Personal Care,1,2818.58,Debit Card
+TXN-5074,CUST-1010,Vikram Anderson,+91 96770 79393,vikram.anderson@example.com,2026-09-21 20:00:00,Footwear & Accessories,3,2238.69,Debit Card
+TXN-5194,CUST-1033,Pooja Singh,+91 95771 55918,pooja.singh@example.com,2026-09-22 00:00:00,Home & Lifestyle,1,3330.81,Debit Card
+TXN-5352,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-09-22 04:00:00,Electronics & Gadgets,2,17013.31,Cash
+TXN-5128,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-09-22 05:00:00,Footwear & Accessories,4,2276.43,Debit Card
+TXN-5586,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-09-22 22:00:00,Electronics & Gadgets,1,24626.1,Cash
+TXN-5366,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-09-23 00:00:00,Electronics & Gadgets,1,4716.36,UPI / Mobile Pay
+TXN-5332,CUST-1059,Noah Anderson,+91 93162 94547,noah.anderson@example.com,2026-09-23 02:00:00,Apparel & Fashion,1,4231.84,Cash
+TXN-5298,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-09-23 05:00:00,Apparel & Fashion,4,8000.63,Debit Card
+TXN-5036,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-09-23 18:00:00,Home & Lifestyle,1,2919.9,Cash
+TXN-5338,CUST-1060,Tanvi Miller,+91 93239 11209,tanvi.miller@example.com,2026-09-23 20:00:00,Electronics & Gadgets,3,5038.38,UPI / Mobile Pay
+TXN-5627,CUST-1111,Rahul Taylor,+91 98428 72380,rahul.taylor@example.com,2026-09-23 21:00:00,Home & Lifestyle,3,575.22,Cash
+TXN-5502,CUST-1087,Marcus Patel,+91 99952 10412,marcus.patel@example.com,2026-09-24 00:00:00,Beauty & Personal Care,3,1076.94,Cash
+TXN-5220,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-09-24 00:00:00,Electronics & Gadgets,3,10809.37,Cash
+TXN-5160,CUST-1026,Sunita Patel,+91 91909 29245,sunita.patel@example.com,2026-09-24 09:00:00,Home & Lifestyle,4,3161.82,Credit Card
+TXN-5629,CUST-1112,Vivek Gupta,+91 97184 34659,vivek.gupta@example.com,2026-09-24 15:00:00,Electronics & Gadgets,2,6066.48,Credit Card
+TXN-5319,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-09-24 16:00:00,Beauty & Personal Care,2,1522.34,Cash
+TXN-5200,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-09-24 22:00:00,Beauty & Personal Care,2,2614.39,Credit Card
+TXN-5566,CUST-1102,Rhea Deshmukh,+91 98450 18635,rhea.deshmukh@example.com,2026-09-25 03:00:00,Beauty & Personal Care,3,547.04,UPI / Mobile Pay
+TXN-5115,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-09-25 12:00:00,Apparel & Fashion,2,8523.78,Credit Card
+TXN-5094,CUST-1013,Amit Chopra,+91 96228 69339,amit.chopra@example.com,2026-09-26 21:00:00,Electronics & Gadgets,4,7485.94,Cash
+TXN-5179,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-09-27 00:00:00,Electronics & Gadgets,4,2310.28,Cash
+TXN-5651,CUST-1117,Deepika Singh,+91 97165 66421,deepika.singh@example.com,2026-09-27 03:00:00,Beauty & Personal Care,3,1581.27,UPI / Mobile Pay
+TXN-5062,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-09-27 10:00:00,Home & Lifestyle,3,3224.31,Credit Card
+TXN-5452,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-09-27 11:00:00,Electronics & Gadgets,1,26130.81,Cash
+TXN-5492,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-09-27 14:00:00,Beauty & Personal Care,4,1415.93,Cash
+TXN-5527,CUST-1095,Divya Anderson,+91 98796 19896,divya.anderson@example.com,2026-09-27 19:00:00,Electronics & Gadgets,3,6397.38,Debit Card
+TXN-5002,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-09-28 01:00:00,Home & Lifestyle,2,1095.46,Debit Card
+TXN-5082,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-09-28 03:00:00,Home & Lifestyle,1,7626.75,Cash
+TXN-5478,CUST-1083,Nikhil Miller,+91 98826 28961,nikhil.miller@example.com,2026-09-28 07:00:00,Electronics & Gadgets,3,1817.44,UPI / Mobile Pay
+TXN-5187,CUST-1031,Aarav Reddy,+91 98373 96618,aarav.reddy@example.com,2026-09-28 19:00:00,Apparel & Fashion,4,4870.23,Credit Card
+TXN-5051,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-09-28 21:00:00,Apparel & Fashion,1,1486.06,Cash
+TXN-5518,CUST-1091,Akash Malhotra,+91 93859 39522,akash.malhotra@example.com,2026-09-28 22:00:00,Home & Lifestyle,1,3158.54,Cash
+TXN-5541,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-09-29 09:00:00,Home & Lifestyle,3,6678.35,Cash
+TXN-5640,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-09-29 17:00:00,Electronics & Gadgets,4,25289.44,Cash
+TXN-5150,CUST-1023,Marcus Joshi,+91 92549 55413,marcus.joshi@example.com,2026-09-30 19:00:00,Home & Lifestyle,3,4978.5,UPI / Mobile Pay
+TXN-5439,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-09-30 22:00:00,Home & Lifestyle,2,3581.31,Debit Card
+TXN-5318,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-10-01 02:00:00,Footwear & Accessories,4,6724.06,Debit Card
+TXN-5026,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-10-01 02:00:00,Beauty & Personal Care,4,1522.18,Cash
+TXN-5177,CUST-1029,Suresh Taylor,+91 93185 68584,suresh.taylor@example.com,2026-10-01 09:00:00,Home & Lifestyle,2,3191.84,UPI / Mobile Pay
+TXN-5457,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-10-01 11:00:00,Beauty & Personal Care,1,2863.94,Debit Card
+TXN-5127,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-10-01 13:00:00,Footwear & Accessories,3,4436.0,Debit Card
+TXN-5392,CUST-1067,Deepika Taylor,+91 96984 59707,deepika.taylor@example.com,2026-10-02 17:00:00,Beauty & Personal Care,4,1974.69,Debit Card
+TXN-5451,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-10-02 19:00:00,Electronics & Gadgets,4,10286.3,Credit Card
+TXN-5573,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-10-02 23:00:00,Home & Lifestyle,4,4320.56,Cash
+TXN-5585,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-10-03 00:00:00,Home & Lifestyle,1,5405.32,UPI / Mobile Pay
+TXN-5597,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-10-03 12:00:00,Beauty & Personal Care,2,612.68,Debit Card
+TXN-5450,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-10-05 07:00:00,Beauty & Personal Care,2,2861.93,Credit Card
+TXN-5351,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-10-05 09:00:00,Electronics & Gadgets,1,1702.03,UPI / Mobile Pay
+TXN-5317,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-10-05 10:00:00,Electronics & Gadgets,4,24686.91,Credit Card
+TXN-5491,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-10-05 17:00:00,Footwear & Accessories,2,8566.43,Credit Card
+TXN-5377,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-10-05 20:00:00,Apparel & Fashion,1,9482.77,Credit Card
+TXN-5012,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-10-06 15:00:00,Home & Lifestyle,4,3716.39,UPI / Mobile Pay
+TXN-5156,CUST-1024,Kabir Nair,+91 99276 60998,kabir.nair@example.com,2026-10-06 22:00:00,Home & Lifestyle,4,2386.9,Credit Card
+TXN-5035,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-10-06 23:00:00,Home & Lifestyle,3,1459.38,Cash
+TXN-5427,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-10-07 21:00:00,Apparel & Fashion,1,7140.23,Cash
+TXN-5231,CUST-1040,Varun Kapoor,+91 95131 32770,varun.kapoor@example.com,2026-10-07 22:00:00,Beauty & Personal Care,2,2493.36,UPI / Mobile Pay
+TXN-5663,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-10-08 05:00:00,Beauty & Personal Care,4,2098.35,Credit Card
+TXN-5554,CUST-1099,Sneha Patel,+91 92755 26847,sneha.patel@example.com,2026-10-08 23:00:00,Apparel & Fashion,3,1877.98,Cash
+TXN-5297,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-10-09 17:00:00,Apparel & Fashion,2,9743.45,Credit Card
+TXN-5308,CUST-1054,Vivek Miller,+91 99484 10756,vivek.miller@example.com,2026-10-10 03:00:00,Footwear & Accessories,1,4140.68,Cash
+TXN-5408,CUST-1073,Divya Chopra,+91 90106 34186,divya.chopra@example.com,2026-10-10 05:00:00,Beauty & Personal Care,1,2904.59,Debit Card
+TXN-5219,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-10-10 05:00:00,Beauty & Personal Care,4,1727.36,Credit Card
+TXN-5193,CUST-1033,Pooja Singh,+91 95771 55918,pooja.singh@example.com,2026-10-10 08:00:00,Home & Lifestyle,3,2018.36,Cash
+TXN-5288,CUST-1052,Olivia Rao,+91 94612 63962,olivia.rao@example.com,2026-10-11 00:00:00,Footwear & Accessories,4,1002.55,UPI / Mobile Pay
+TXN-5023,CUST-1003,Sneha Nair,+91 91542 39305,sneha.nair@example.com,2026-10-11 07:00:00,Footwear & Accessories,1,1637.18,Credit Card
+TXN-5168,CUST-1028,Sneha Gupta,+91 97732 86383,sneha.gupta@example.com,2026-10-12 02:00:00,Footwear & Accessories,2,3723.13,Cash
+TXN-5278,CUST-1051,Suresh Deshmukh,+91 91213 85177,suresh.deshmukh@example.com,2026-10-12 03:00:00,Home & Lifestyle,1,1715.48,Debit Card
+TXN-5621,CUST-1110,Ishita Singh,+91 91422 27296,ishita.singh@example.com,2026-10-12 08:00:00,Apparel & Fashion,1,4775.99,Debit Card
+TXN-5456,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-10-12 17:00:00,Footwear & Accessories,1,2109.05,Credit Card
+TXN-5135,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-10-12 19:00:00,Beauty & Personal Care,1,2377.59,Debit Card
+TXN-5199,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-10-13 05:00:00,Beauty & Personal Care,2,1744.47,UPI / Mobile Pay
+TXN-5501,CUST-1087,Marcus Patel,+91 99952 10412,marcus.patel@example.com,2026-10-14 00:00:00,Beauty & Personal Care,1,2343.95,Credit Card
+TXN-5258,CUST-1046,Gaurav Deshmukh,+91 97604 18180,gaurav.deshmukh@example.com,2026-10-14 01:00:00,Home & Lifestyle,3,4577.62,Cash
+TXN-5365,CUST-1065,Marcus Joshi,+91 91328 83661,marcus.joshi@example.com,2026-10-14 04:00:00,Electronics & Gadgets,2,3091.52,Debit Card
+TXN-5316,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-10-14 10:00:00,Home & Lifestyle,1,1308.2,Debit Card
+TXN-5081,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-10-14 11:00:00,Home & Lifestyle,4,2732.54,Credit Card
+TXN-5126,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-10-15 01:00:00,Footwear & Accessories,4,4848.46,Cash
+TXN-5477,CUST-1083,Nikhil Miller,+91 98826 28961,nikhil.miller@example.com,2026-10-15 09:00:00,Apparel & Fashion,4,2146.43,Debit Card
+TXN-5176,CUST-1029,Suresh Taylor,+91 93185 68584,suresh.taylor@example.com,2026-10-15 14:00:00,Electronics & Gadgets,2,15074.9,Credit Card
+TXN-5114,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-10-15 16:00:00,Electronics & Gadgets,1,26612.0,Credit Card
+TXN-5149,CUST-1023,Marcus Joshi,+91 92549 55413,marcus.joshi@example.com,2026-10-16 06:00:00,Footwear & Accessories,1,5914.66,Credit Card
+TXN-5331,CUST-1059,Noah Anderson,+91 93162 94547,noah.anderson@example.com,2026-10-16 06:00:00,Apparel & Fashion,2,2640.6,Debit Card
+TXN-5487,CUST-1085,Rahul Malhotra,+91 92566 98783,rahul.malhotra@example.com,2026-10-16 09:00:00,Apparel & Fashion,4,3090.51,UPI / Mobile Pay
+TXN-5449,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-10-16 18:00:00,Electronics & Gadgets,2,25617.02,Cash
+TXN-5490,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-10-16 21:00:00,Beauty & Personal Care,2,2966.27,Debit Card
+TXN-5098,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-10-16 22:00:00,Beauty & Personal Care,3,896.69,UPI / Mobile Pay
+TXN-5532,CUST-1097,Akash Gupta,+91 98982 94736,akash.gupta@example.com,2026-10-17 02:00:00,Footwear & Accessories,2,1888.78,UPI / Mobile Pay
+TXN-5158,CUST-1025,Emma Johnson,+91 97823 78507,emma.johnson@example.com,2026-10-17 04:00:00,Electronics & Gadgets,2,16163.38,UPI / Mobile Pay
+TXN-5637,CUST-1114,Kabir Joshi,+91 90823 52110,kabir.joshi@example.com,2026-10-17 06:00:00,Beauty & Personal Care,4,604.48,Debit Card
+TXN-5214,CUST-1036,Deepika Chopra,+91 98572 26639,deepika.chopra@example.com,2026-10-17 07:00:00,Home & Lifestyle,1,2062.57,UPI / Mobile Pay
+TXN-5315,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-10-17 15:00:00,Footwear & Accessories,1,8525.09,Cash
+TXN-5186,CUST-1031,Aarav Reddy,+91 98373 96618,aarav.reddy@example.com,2026-10-18 06:00:00,Apparel & Fashion,2,2762.19,Credit Card
+TXN-5540,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-10-18 14:00:00,Home & Lifestyle,2,2191.52,UPI / Mobile Pay
+TXN-5596,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-10-18 22:00:00,Beauty & Personal Care,3,2459.38,Credit Card
+TXN-5426,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-10-19 03:00:00,Apparel & Fashion,1,4250.95,Credit Card
+TXN-5159,CUST-1026,Sunita Patel,+91 91909 29245,sunita.patel@example.com,2026-10-19 09:00:00,Footwear & Accessories,4,2100.39,Cash
+TXN-5670,CUST-1120,Priya Wilson,+91 90988 29417,priya.wilson@example.com,2026-10-19 09:00:00,Footwear & Accessories,2,5224.46,Cash
+TXN-5584,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-10-20 02:00:00,Home & Lifestyle,1,4303.26,UPI / Mobile Pay
+TXN-5565,CUST-1102,Rhea Deshmukh,+91 98450 18635,rhea.deshmukh@example.com,2026-10-20 07:00:00,Beauty & Personal Care,3,2632.87,Credit Card
+TXN-5296,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-10-20 19:00:00,Apparel & Fashion,1,4860.82,Cash
+TXN-5376,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-10-20 21:00:00,Home & Lifestyle,4,3221.68,Cash
+TXN-5514,CUST-1090,Priya Wilson,+91 93390 62090,priya.wilson@example.com,2026-10-21 00:00:00,Home & Lifestyle,2,1079.36,Cash
+TXN-5626,CUST-1111,Rahul Taylor,+91 98428 72380,rahul.taylor@example.com,2026-10-21 05:00:00,Electronics & Gadgets,1,2420.63,Cash
+TXN-5350,CUST-1063,Siddharth Nair,+91 98645 95739,siddharth.nair@example.com,2026-10-21 09:00:00,Electronics & Gadgets,3,14428.1,Cash
+TXN-5080,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-10-21 20:00:00,Home & Lifestyle,2,3417.55,Cash
+TXN-5061,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-10-22 22:00:00,Beauty & Personal Care,3,2648.98,Cash
+TXN-5448,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-10-22 23:00:00,Electronics & Gadgets,4,24420.32,Credit Card
+TXN-5095,CUST-1014,Olivia Deshmukh,+91 91171 12245,olivia.deshmukh@example.com,2026-10-23 00:00:00,Electronics & Gadgets,3,2782.89,Credit Card
+TXN-5313,CUST-1056,Alok Mehta,+91 95599 28528,alok.mehta@example.com,2026-10-23 04:00:00,Beauty & Personal Care,4,944.45,Debit Card
+TXN-5639,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-10-23 21:00:00,Electronics & Gadgets,2,26200.7,Credit Card
+TXN-5508,CUST-1088,Kavya Singh,+91 90031 48793,kavya.singh@example.com,2026-10-25 00:00:00,Apparel & Fashion,4,1956.49,Cash
+TXN-5337,CUST-1060,Tanvi Miller,+91 93239 11209,tanvi.miller@example.com,2026-10-25 01:00:00,Home & Lifestyle,4,3821.06,Cash
+TXN-5526,CUST-1095,Divya Anderson,+91 98796 19896,divya.anderson@example.com,2026-10-25 02:00:00,Electronics & Gadgets,2,6668.49,Cash
+TXN-5468,CUST-1082,Vikram Joshi,+91 92098 13480,vikram.joshi@example.com,2026-10-25 02:00:00,Apparel & Fashion,2,5236.34,Debit Card
+TXN-5572,CUST-1103,Vikram Bhatia,+91 91190 75162,vikram.bhatia@example.com,2026-10-26 00:00:00,Home & Lifestyle,1,5735.5,Cash
+TXN-5011,CUST-1002,Swati Taylor,+91 97734 22882,swati.taylor@example.com,2026-10-26 03:00:00,Beauty & Personal Care,1,2408.61,Debit Card
+TXN-5489,CUST-1086,Neha Iyer,+91 91911 67497,neha.iyer@example.com,2026-10-26 05:00:00,Beauty & Personal Care,2,3406.01,Debit Card
+TXN-5650,CUST-1117,Deepika Singh,+91 97165 66421,deepika.singh@example.com,2026-10-26 06:00:00,Beauty & Personal Care,4,1164.26,UPI / Mobile Pay
+TXN-5310,CUST-1055,Divya Bhatia,+91 94275 71507,divya.bhatia@example.com,2026-10-27 03:00:00,Footwear & Accessories,1,3373.65,Debit Card
+TXN-5113,CUST-1018,Neha Miller,+91 98808 71947,neha.miller@example.com,2026-10-27 04:00:00,Electronics & Gadgets,4,12196.69,Debit Card
+TXN-5178,CUST-1030,Elena Patel,+91 94123 12682,elena.patel@example.com,2026-10-27 07:00:00,Electronics & Gadgets,3,1929.08,Cash
+TXN-5628,CUST-1112,Vivek Gupta,+91 97184 34659,vivek.gupta@example.com,2026-10-28 00:00:00,Electronics & Gadgets,4,17358.17,UPI / Mobile Pay
+TXN-5391,CUST-1067,Deepika Taylor,+91 96984 59707,deepika.taylor@example.com,2026-10-28 01:00:00,Apparel & Fashion,1,5700.0,UPI / Mobile Pay
+TXN-5125,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-10-28 02:00:00,Footwear & Accessories,4,6491.49,UPI / Mobile Pay
+TXN-5073,CUST-1010,Vikram Anderson,+91 96770 79393,vikram.anderson@example.com,2026-10-28 04:00:00,Apparel & Fashion,4,3841.63,Debit Card
+TXN-5079,CUST-1012,Varun Patel,+91 93854 12508,varun.patel@example.com,2026-10-28 08:00:00,Home & Lifestyle,4,5260.59,Credit Card
+TXN-5400,CUST-1070,Juhi Taylor,+91 98972 84407,juhi.taylor@example.com,2026-10-29 04:00:00,Footwear & Accessories,2,3248.89,UPI / Mobile Pay
+TXN-5001,CUST-1001,Deepika Taylor,+91 95949 37290,deepika.taylor@example.com,2026-10-29 04:00:00,Home & Lifestyle,2,3573.31,UPI / Mobile Pay
+TXN-5034,CUST-1006,Divya Singh,+91 97003 19092,divya.singh@example.com,2026-10-29 04:00:00,Footwear & Accessories,1,1674.42,UPI / Mobile Pay
+TXN-5314,CUST-1057,Elena Chopra,+91 96494 55164,elena.chopra@example.com,2026-10-30 00:00:00,Footwear & Accessories,2,5075.53,Cash
+TXN-5425,CUST-1077,Sophia Johnson,+91 92997 56863,sophia.johnson@example.com,2026-10-30 04:00:00,Apparel & Fashion,4,6929.87,Credit Card
+TXN-5050,CUST-1007,Ishita Rao,+91 95215 81034,ishita.rao@example.com,2026-10-30 05:00:00,Home & Lifestyle,1,4228.74,UPI / Mobile Pay
+TXN-5134,CUST-1022,Swati Nair,+91 92632 39274,swati.nair@example.com,2026-10-30 06:00:00,Beauty & Personal Care,4,1129.0,UPI / Mobile Pay
+TXN-5155,CUST-1024,Kabir Nair,+91 99276 60998,kabir.nair@example.com,2026-10-30 09:00:00,Home & Lifestyle,3,2095.47,Credit Card
+TXN-5060,CUST-1008,Tanvi Deshmukh,+91 99327 50753,tanvi.deshmukh@example.com,2026-10-31 01:00:00,Beauty & Personal Care,2,838.56,Credit Card
+TXN-5033,CUST-1005,Alok Deshmukh,+91 97613 96614,alok.deshmukh@example.com,2026-10-31 02:00:00,Footwear & Accessories,4,1075.23,Debit Card
+TXN-5213,CUST-1035,Neha Bhatia,+91 90047 43030,neha.bhatia@example.com,2026-10-31 02:00:00,Home & Lifestyle,4,718.88,Debit Card
+TXN-5583,CUST-1104,Gaurav Bhatia,+91 99425 50819,gaurav.bhatia@example.com,2026-10-31 03:00:00,Home & Lifestyle,1,2990.05,Credit Card
+TXN-5307,CUST-1054,Vivek Miller,+91 99484 10756,vivek.miller@example.com,2026-10-31 03:00:00,Footwear & Accessories,1,4621.54,UPI / Mobile Pay
+TXN-5025,CUST-1004,Tanvi Chopra,+91 99410 90229,tanvi.chopra@example.com,2026-10-31 05:00:00,Beauty & Personal Care,1,2471.37,Credit Card
+TXN-5218,CUST-1038,Neha Iyer,+91 99595 26864,neha.iyer@example.com,2026-10-31 08:00:00,Electronics & Gadgets,1,16003.77,Credit Card
+TXN-5438,CUST-1078,Rohan Rao,+91 92398 80109,rohan.rao@example.com,2026-11-01 04:00:00,Footwear & Accessories,3,5138.87,Cash
+TXN-5093,CUST-1013,Amit Chopra,+91 96228 69339,amit.chopra@example.com,2026-11-01 04:00:00,Electronics & Gadgets,3,7910.42,UPI / Mobile Pay
+TXN-5022,CUST-1003,Sneha Nair,+91 91542 39305,sneha.nair@example.com,2026-11-01 08:00:00,Footwear & Accessories,4,3931.72,Debit Card
+TXN-5375,CUST-1066,Liam Nair,+91 99074 59880,liam.nair@example.com,2026-11-01 08:00:00,Home & Lifestyle,2,4266.49,Credit Card
+TXN-5295,CUST-1053,Rajesh Joshi,+91 96007 57712,rajesh.joshi@example.com,2026-11-02 01:00:00,Apparel & Fashion,3,3256.55,Cash
+TXN-5455,CUST-1080,Elena Anderson,+91 97748 71054,elena.anderson@example.com,2026-11-02 03:00:00,Beauty & Personal Care,1,2565.0,Debit Card
+TXN-5662,CUST-1119,Neha Verma,+91 96599 36309,neha.verma@example.com,2026-11-02 07:00:00,Electronics & Gadgets,2,23425.44,UPI / Mobile Pay
+TXN-5401,CUST-1071,Sophia Davis,+91 93627 34293,sophia.davis@example.com,2026-11-02 07:00:00,Beauty & Personal Care,4,1200.69,Cash
+TXN-5595,CUST-1105,Meera Wilson,+91 98034 61874,meera.wilson@example.com,2026-11-03 00:00:00,Beauty & Personal Care,3,1026.91,Credit Card
+TXN-5393,CUST-1068,James Patel,+91 94207 27275,james.patel@example.com,2026-11-03 00:00:00,Home & Lifestyle,3,3881.67,Cash
+TXN-5198,CUST-1034,Pallavi Wilson,+91 94113 95074,pallavi.wilson@example.com,2026-11-03 09:00:00,Beauty & Personal Care,1,4446.92,UPI / Mobile Pay
+TXN-5423,CUST-1076,Juhi Miller,+91 90855 91659,juhi.miller@example.com,2026-11-04 02:00:00,Footwear & Accessories,3,2241.22,Cash
+TXN-5230,CUST-1040,Varun Kapoor,+91 95131 32770,varun.kapoor@example.com,2026-11-04 02:00:00,Beauty & Personal Care,2,1597.54,Credit Card
+TXN-5097,CUST-1015,Olivia Gupta,+91 90593 13686,olivia.gupta@example.com,2026-11-04 05:00:00,Beauty & Personal Care,2,2272.96,Debit Card
+TXN-5447,CUST-1079,Arjun Smith,+91 97949 74203,arjun.smith@example.com,2026-11-04 07:00:00,Electronics & Gadgets,2,5302.16,Debit Card
+TXN-5175,CUST-1029,Suresh Taylor,+91 93185 68584,suresh.taylor@example.com,2026-11-05 02:00:00,Home & Lifestyle,4,1098.89,UPI / Mobile Pay
+TXN-5124,CUST-1019,Swati Mehta,+91 94412 75212,swati.mehta@example.com,2026-11-05 07:00:00,Footwear & Accessories,2,7469.69,Credit Card
+TXN-5517,CUST-1091,Akash Malhotra,+91 93859 39522,akash.malhotra@example.com,2026-11-05 08:00:00,Home & Lifestyle,2,2128.07,Credit Card
+TXN-5539,CUST-1098,Neha Sharma,+91 96405 95256,neha.sharma@example.com,2026-11-06 02:00:00,Footwear & Accessories,1,4061.13,UPI / Mobile Pay
+TXN-5076,CUST-1011,Suresh Sharma,+91 96947 11750,suresh.sharma@example.com,2026-11-07 01:00:00,Electronics & Gadgets,2,13192.05,Cash
+TXN-5553,CUST-1099,Sneha Patel,+91 92755 26847,sneha.patel@example.com,2026-11-07 07:00:00,Apparel & Fashion,4,4279.14,Debit Card
+TXN-5638,CUST-1115,Harsh Johnson,+91 97403 34851,harsh.johnson@example.com,2026-11-08 04:00:00,Electronics & Gadgets,4,8023.01,UPI / Mobile Pay

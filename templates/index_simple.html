@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retail Customer Segmentation & Churn Prediction System (College Demo)</title>
+  <!-- Standard Chart.js for simple graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      padding-bottom: 40px;
+    }
+
+    /* Top Navigation Header */
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    .header-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Common Button Styles */
+    .btn {
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: bold;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-green {
+      background-color: #16a34a;
+      color: white;
+    }
+    .btn-green:hover { background-color: #15803d; }
+
+    .btn-light {
+      background-color: #ffffff;
+      color: #1e293b;
+      border-color: #cbd5e1;
+    }
+    .btn-light:hover { background-color: #f1f5f9; }
+
+    .btn-blue {
+      background-color: #2563eb;
+      color: white;
+    }
+    .btn-blue:hover { background-color: #1d4ed8; }
+
+    /* Page Container */
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    /* KPI Cards Grid */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-box {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 14px;
+    }
+
+    .kpi-title {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #64748b;
+    }
+
+    .kpi-value {
+      font-size: 22px;
+      font-weight: bold;
+      color: #0f172a;
+      margin: 6px 0 2px 0;
+    }
+
+    .kpi-sub {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .kpi-danger {
+      border-left: 4px solid #ef4444;
+      background-color: #fef2f2;
+    }
+    .kpi-danger .kpi-value { color: #dc2626; }
+
+    .kpi-success {
+      border-left: 4px solid #16a34a;
+    }
+
+    /* Simple Tab Navigation */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid #cbd5e1;
+      margin-bottom: 18px;
+      background: white;
+      padding: 6px 10px 0 10px;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .tab-btn {
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: bold;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: #64748b;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      color: #1e3a8a;
+      border-bottom-color: #1e3a8a;
+    }
+
+    /* Card Panels */
+    .panel {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .panel-header h2 {
+      font-size: 15px;
+      font-weight: bold;
+      color: #1e293b;
+    }
+
+    .panel-header p {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* Simple Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    th, td {
+      padding: 9px 10px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: #475569;
+      font-weight: bold;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* Status Badges */
+    .badge {
+      display: inline-block;
+      padding: 3px 7px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+
+    .badge-red { background: #fee2e2; color: #b91c1c; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1d4ed8; }
+    .badge-gray { background: #f1f5f9; color: #475569; }
+
+    /* Offer Cards Grid */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 14px;
+    }
+
+    .offer-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 14px;
+      background: #fafafa;
+    }
+
+    .offer-box h3 {
+      font-size: 14px;
+      color: #0f172a;
+      margin: 6px 0;
+    }
+
+    .offer-sms {
+      background: white;
+      border: 1px dashed #cbd5e1;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      color: #475569;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    /* Modal Popups */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 15px;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 520px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .modal-header h3 {
+      font-size: 15px;
+      color: #0f172a;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #64748b;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: bold;
+      color: #334155;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px;
+      font-size: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 16px;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 12px;
+    }
+
+    /* Charts Container */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .charts-row { grid-template-columns: 1fr; }
+    }
+
+    /* Simple Notification Toast */
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0f172a;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 12px;
+      display: none;
+      z-index: 2000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Simple Header -->
+  <header>
+    <div>
+      <h1>Retail Customer Segmentation & Churn System</h1>
+      <p>College Project Demo - RFM Modeling, Churn Hazard Prediction & Retention Offers</p>
+    </div>
+    <div class="header-btns">
+      <button class="btn btn-green" onclick="openAddModal()">+ Add Customer</button>
+      <button class="btn btn-light" onclick="resetData()" id="btn-reset">Reset Demo Data</button>
+      <button class="btn btn-light" onclick="openUploadModal()">Upload CSV</button>
+      <a class="btn btn-blue" href="/api/export-offers">Export Offers CSV</a>
+      <a class="btn btn-light" href="/modern" style="border-color: #60a5fa; color: #1e40af;">Switch to Modern SaaS UI &rarr;</a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- 4 Key Metrics Row -->
+    <div class="kpi-row">
+      <div class="kpi-box">
+        <div class="kpi-title">Total Customers</div>
+        <div class="kpi-value" id="kpi-customers">--</div>
+        <div class="kpi-sub" id="kpi-txns">-- transactions</div>
+      </div>
+
+      <div class="kpi-box">
+        <div class="kpi-title">Total Revenue</div>
+        <div class="kpi-value" id="kpi-revenue">₹--</div>
+        <div class="kpi-sub">Avg spend: <span id="kpi-avg-spend">₹--</span></div>
+      </div>
+
+      <div class="kpi-box kpi-success">
+        <div class="kpi-title">Loyal Customers</div>
+        <div class="kpi-value" id="kpi-loyal">--%</div>
+        <div class="kpi-sub" id="kpi-loyal-count">-- regular shoppers</div>
+      </div>
+
+      <div class="kpi-box kpi-danger">
+        <div class="kpi-title">Revenue At Risk (Churn)</div>
+        <div class="kpi-value" id="kpi-churn-rev">₹--</div>
+        <div class="kpi-sub" id="kpi-churn-rate">--% customer churn risk</div>
+      </div>
+    </div>
+
+    <!-- Tab Buttons -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('churn', this)">1. Churn Prediction (Who is Leaving?)</button>
+      <button class="tab-btn" onclick="switchTab('segments', this)">2. Customer Segments (RFM)</button>
+      <button class="tab-btn" onclick="switchTab('offers', this)">3. Suggested Offers</button>
+      <button class="tab-btn" onclick="switchTab('directory', this)">4. Full Customer List</button>
+      <button class="tab-btn" onclick="switchTab('charts', this)">5. Charts & Analytics</button>
+    </div>
+
+    <!-- TAB 1: CHURN PREDICTION (WHO IS LEAVING) -->
+    <div id="tab-churn" class="tab-pane">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Churn Warning Radar (Customers Likely to Leave)</h2>
+            <p>Compares days since last visit against the customer's normal purchase cycle. High probability = immediate attention needed.</p>
+          </div>
+          <div>
+            <label style="font-size: 11px; font-weight: bold; margin-right: 4px;">Filter:</label>
+            <select id="churn-select" onchange="renderChurnTable()" style="padding: 4px 8px; font-size: 11px; border: 1px solid #cbd5e1; border-radius: 4px;">
+              <option value="ALL">All Warning / High Risk</option>
+              <option value="High Risk" selected>High Risk Only (>65%)</option>
+              <option value="Medium Risk">Medium Risk Only (35% - 65%)</option>
+            </select>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Segment</th>
+              <th>Days Inactive</th>
+              <th>Normal Cycle</th>
+              <th>Total Spend</th>
+              <th>Churn Risk</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="churn-tbody">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 2: CUSTOMER SEGMENTS (RFM) -->
+    <div id="tab-segments" class="tab-pane" style="display: none;">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Customer Segmentation Summary (RFM Model)</h2>
+            <p>Customers are grouped into 6 clusters based on Recency (R), Frequency (F), and Monetary Spend (M).</p>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Segment Name</th>
+              <th>Behavior Description</th>
+              <th>Customer Count</th>
+              <th>Cohort Spend (₹)</th>
+              <th>Avg Spend (₹)</th>
+            </tr>
+          </thead>
+          <tbody id="segments-tbody">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: SUGGESTED OFFERS -->
+    <div id="tab-offers" class="tab-pane" style="display: none;">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Automated Retention Offers</h2>
+            <p>Offers are customized per segment to protect margins: value-adds for VIPs, discounts for churn risks.</p>
+          </div>
+        </div>
+
+        <div class="offer-grid" id="offers-grid">
+          <!-- Populated via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: FULL CUSTOMER DIRECTORY -->
+    <div id="tab-directory" class="tab-pane" style="display: none;">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>All Customers Database</h2>
+            <p>Search and click on any customer row to see their full profile and offer.</p>
+          </div>
+          <div>
+            <input type="text" id="cust-search" oninput="renderDirectoryTable()" placeholder="Search customer name or ID..." style="padding: 5px 8px; font-size: 11px; border: 1px solid #cbd5e1; border-radius: 4px; width: 200px;">
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID & Name</th>
+              <th>Segment</th>
+              <th>RFM Score</th>
+              <th>Recency</th>
+              <th>Visits</th>
+              <th>Total Spend</th>
+              <th>Churn Risk</th>
+              <th>Profile</th>
+            </tr>
+          </thead>
+          <tbody id="directory-tbody">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 5: CHARTS & ANALYTICS -->
+    <div id="tab-charts" class="tab-pane" style="display: none;">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Overview Visual Charts</h2>
+        </div>
+        <div class="charts-row">
+          <div style="border: 1px solid #e2e8f0; border-radius: 4px; padding: 12px; background: white;">
+            <h4 style="font-size: 12px; margin-bottom: 10px; color: #475569;">Customer Count by Segment</h4>
+            <div style="height: 250px;">
+              <canvas id="chart-segments"></canvas>
+            </div>
+          </div>
+          <div style="border: 1px solid #e2e8f0; border-radius: 4px; padding: 12px; background: white;">
+            <h4 style="font-size: 12px; margin-bottom: 10px; color: #475569;">Churn Risk Breakdown</h4>
+            <div style="height: 250px;">
+              <canvas id="chart-churn"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ADD CUSTOMER MODAL -->
+  <div class="modal-overlay" id="add-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Customer & Test Churn</h3>
+        <button class="close-btn" onclick="closeAddModal()">&times;</button>
+      </div>
+      <form onsubmit="submitNewCustomer(event)">
+        <div class="form-group">
+          <label>Customer Full Name</label>
+          <input type="text" id="form-name" required placeholder="e.g. Rahul Sharma">
+        </div>
+        <div class="form-group">
+          <label>Phone Number (Optional)</label>
+          <input type="text" id="form-phone" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Product Category</label>
+          <select id="form-category">
+            <option value="Apparel & Fashion">Apparel & Fashion</option>
+            <option value="Footwear & Accessories">Footwear & Accessories</option>
+            <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+            <option value="Electronics & Gadgets">Electronics & Gadgets</option>
+            <option value="Home & Lifestyle">Home & Lifestyle</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Purchase Amount (₹)</label>
+          <input type="number" id="form-amount" required min="50" step="50" value="2500">
+        </div>
+        <div class="form-group">
+          <label>Shopping Behavior (To Test Algorithm)</label>
+          <select id="form-behavior">
+            <option value="recent_repeat">Repeat Regular, Visited Recently (Tests VIP / Loyal)</option>
+            <option value="recent_single">First-Time Buyer, Visited This Week (Tests New Shopper)</option>
+            <option value="slipping_repeat">Repeat Regular, Inactive ~45 Days (Tests Warning Risk)</option>
+            <option value="atrisk_repeat" selected>Past High Spender, Inactive 90+ Days (Tests High Churn Risk!)</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-light" onclick="closeAddModal()">Cancel</button>
+          <button type="submit" class="btn btn-green" id="btn-add-submit">Add & Run Prediction</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CUSTOMER DETAIL MODAL -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-name">Customer Details</h3>
+          <span style="font-size: 11px; color: #64748b;" id="modal-id">CUST-1001</span>
+        </div>
+        <button class="close-btn" onclick="closeDetailModal()">&times;</button>
+      </div>
+
+      <div style="font-size: 12px; line-height: 1.6;">
+        <p><strong>Segment:</strong> <span id="modal-segment" class="badge badge-blue">Segment</span></p>
+        <p><strong>Total Spend:</strong> <span id="modal-spend" style="font-weight: bold;">₹0</span></p>
+        <p><strong>Visits / Invoices:</strong> <span id="modal-visits">0</span></p>
+        <p><strong>Last Purchase:</strong> <span id="modal-recency">0 days ago</span></p>
+        <p><strong>Expected Visit Cycle:</strong> <span id="modal-cycle">Every -- days</span></p>
+        <p><strong>RFM Score (R-F-M):</strong> <span id="modal-rfm" style="font-weight: bold; font-family: monospace;">---</span></p>
+        
+        <div style="margin: 12px 0; padding: 10px; background: #fef2f2; border: 1px solid #fecaca; border-radius: 4px;">
+          <strong style="color: #991b1b;">Churn Diagnostic:</strong>
+          <p id="modal-churn-diag" style="color: #7f1d1d; margin-top: 3px; font-size: 11px;">Analysis...</p>
+        </div>
+
+        <div style="margin-top: 10px; padding: 10px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 4px;">
+          <strong style="color: #1e40af;">Personalized Retention Offer:</strong>
+          <p id="modal-offer-title" style="font-weight: bold; margin-top: 2px;">Offer Title</p>
+          <p id="modal-offer-action" style="font-size: 11px; color: #334155;">Offer detail</p>
+          <div class="offer-sms" id="modal-offer-sms" style="margin-top: 8px;">
+            "SMS message text"
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-light" onclick="closeDetailModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CSV UPLOAD MODAL -->
+  <div class="modal-overlay" id="upload-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Upload Store Transactions CSV</h3>
+        <button class="close-btn" onclick="closeUploadModal()">&times;</button>
+      </div>
+      <form onsubmit="submitCSV(event)">
+        <div class="form-group">
+          <label>Select CSV File</label>
+          <input type="file" id="csv-file" accept=".csv" required>
+        </div>
+        <p style="font-size: 11px; color: #64748b; margin-bottom: 12px;">
+          Required columns: <code>customer_id</code>, <code>timestamp</code>, <code>amount</code>.
+        </p>
+        <div class="form-actions">
+          <button type="button" class="btn btn-light" onclick="closeUploadModal()">Cancel</button>
+          <button type="submit" class="btn btn-blue" id="btn-upload-submit">Process CSV</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast">Notification text</div>
+
+  <script>
+    let appData = null;
+    let segChart = null;
+    let churnChart = null;
+
+    // Fetch data from Flask backend on page load
+    window.onload = function() {
+      loadData();
+    };
+
+    function loadData() {
+      fetch('/api/data')
+        .then(res => res.json())
+        .then(data => {
+          appData = data;
+          renderUI();
+        })
+        .catch(err => {
+          console.error(err);
+          showToast("Error loading data from server");
+        });
+    }
+
+    function renderUI() {
+      if (!appData) return;
+      const k = appData.kpis;
+
+      // Update KPI Boxes
+      document.getElementById("kpi-customers").innerText = k.total_customers;
+      document.getElementById("kpi-txns").innerText = k.total_transactions + " total transactions";
+      document.getElementById("kpi-revenue").innerText = "₹" + Math.round(k.total_revenue).toLocaleString('en-IN');
+      document.getElementById("kpi-avg-spend").innerText = "₹" + Math.round(k.avg_spend_per_customer).toLocaleString('en-IN');
+      document.getElementById("kpi-loyal").innerText = k.loyal_pct + "%";
+      document.getElementById("kpi-loyal-count").innerText = k.loyal_customers + " regular customers";
+      document.getElementById("kpi-churn-rev").innerText = "₹" + Math.round(k.revenue_at_risk).toLocaleString('en-IN');
+      document.getElementById("kpi-churn-rate").innerText = k.high_risk_customers + " customers (" + k.churn_rate_pct + "%) at risk";
+
+      // Render Tables & Cards
+      renderChurnTable();
+      renderSegmentsTable();
+      renderOffersGrid();
+      renderDirectoryTable();
+      renderSimpleCharts();
+    }
+
+    // 1. Churn Table
+    function renderChurnTable() {
+      const tbody = document.getElementById("churn-tbody");
+      tbody.innerHTML = "";
+      const filter = document.getElementById("churn-select").value;
+
+      let list = appData.customers.filter(c => c.churn_status === "High Risk" || c.churn_status === "Medium Risk");
+      if (filter !== "ALL") {
+        list = list.filter(c => c.churn_status === filter);
+      }
+
+      list.sort((a, b) => b.churn_probability - a.churn_probability);
+
+      if (list.length === 0) {
+        tbody.innerHTML = "<tr><td colspan='8' style='text-align: center; color: #94a3b8;'>No customers match this filter.</td></tr>";
+        return;
+      }
+
+      list.forEach(c => {
+        const tr = document.createElement("tr");
+        const badgeClass = c.churn_status === "High Risk" ? "badge-red" : "badge-amber";
+
+        tr.innerHTML = `
+          <td><strong>${c.name}</strong><br><span style="font-size:10px; color:#64748b;">${c.customer_id}</span></td>
+          <td>${c.segment}</td>
+          <td style="font-weight:bold; color: ${c.recency_days > 60 ? '#dc2626' : '#334155'};">${c.recency_days} days</td>
+          <td>Every ${Math.round(c.mean_cycle)} days</td>
+          <td>₹${Math.round(c.total_spend).toLocaleString('en-IN')}</td>
+          <td><strong>${c.churn_probability}%</strong></td>
+          <td><span class="badge ${badgeClass}">${c.churn_status}</span></td>
+          <td><button class="btn btn-light" style="padding: 4px 8px; font-size: 11px;" onclick="showCustomerDetail('${c.customer_id}')">View Offer</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 2. Segments Table
+    function renderSegmentsTable() {
+      const tbody = document.getElementById("segments-tbody");
+      tbody.innerHTML = "";
+      const dist = appData.kpis.segment_distribution;
+      const rev = appData.kpis.segment_revenue;
+
+      const descriptions = {
+        "Champions & VIPs": "Frequent big spenders who shopped recently. Protect margin; do not give deep discounts.",
+        "Loyal Customers": "Consistent repeat shoppers. Perfect candidates for cross-selling complementary items.",
+        "New & Promising": "First or second time shoppers. Nurture with a quick second-visit promo.",
+        "At Risk (High Value)": "Past frequent big spenders who have crossed their normal cycle. High priority win-back!",
+        "Needs Attention": "Regular shoppers whose visit interval is slowing down. Send a gentle reminder.",
+        "Hibernating / Inactive": "Prolonged inactivity with low frequency. Re-engage with clearance discount."
+      };
+
+      Object.keys(dist).forEach(seg => {
+        const count = dist[seg] || 0;
+        const totalRev = rev[seg] || 0;
+        const avg = count > 0 ? Math.round(totalRev / count) : 0;
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${seg}</strong></td>
+          <td style="color: #475569;">${descriptions[seg] || "Customer cluster"}</td>
+          <td><strong>${count}</strong></td>
+          <td>₹${Math.round(totalRev).toLocaleString('en-IN')}</td>
+          <td>₹${avg.toLocaleString('en-IN')}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 3. Offers Grid
+    function renderOffersGrid() {
+      const grid = document.getElementById("offers-grid");
+      grid.innerHTML = "";
+
+      const campaignMap = {};
+      appData.customers.forEach(c => {
+        const title = c.suggested_offer_title;
+        if (!campaignMap[title]) {
+          campaignMap[title] = {
+            title: title,
+            tag: c.suggested_offer_tag,
+            discount: c.suggested_discount,
+            detail: c.suggested_offer_detail,
+            sms: c.suggested_sms_message,
+            segment: c.segment,
+            count: 0
+          };
+        }
+        campaignMap[title].count++;
+      });
+
+      Object.values(campaignMap).forEach(camp => {
+        const box = document.createElement("div");
+        box.className = "offer-box";
+        box.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="badge badge-blue">${camp.tag}</span>
+            <span style="font-size: 11px; color: #64748b;">${camp.count} customers</span>
+          </div>
+          <h3>${camp.title}</h3>
+          <p style="font-size: 11px; color: #16a34a; font-weight: bold; margin-bottom: 4px;">${camp.discount}</p>
+          <p style="font-size: 12px; color: #475569;">${camp.detail}</p>
+          <div class="offer-sms">
+            <strong>Sample SMS / WhatsApp Copy:</strong><br>
+            "${camp.sms}"
+          </div>
+        `;
+        grid.appendChild(box);
+      });
+    }
+
+    // 4. Directory Table
+    function renderDirectoryTable() {
+      const tbody = document.getElementById("directory-tbody");
+      tbody.innerHTML = "";
+      const search = document.getElementById("cust-search").value.toLowerCase().trim();
+
+      let list = appData.customers;
+      if (search) {
+        list = list.filter(c => c.name.toLowerCase().includes(search) || c.customer_id.toLowerCase().includes(search));
+      }
+
+      list.forEach(c => {
+        const tr = document.createElement("tr");
+        const badgeClass = c.churn_status === "High Risk" ? "badge-red" : (c.churn_status === "Medium Risk" ? "badge-amber" : "badge-green");
+
+        tr.innerHTML = `
+          <td><strong>${c.name}</strong><br><span style="font-size:10px; color:#64748b;">${c.customer_id}</span></td>
+          <td>${c.segment}</td>
+          <td style="font-family: monospace; font-weight: bold;">${c.rfm_combined}</td>
+          <td>${c.recency_days}d ago</td>
+          <td>${c.frequency}</td>
+          <td>₹${Math.round(c.total_spend).toLocaleString('en-IN')}</td>
+          <td><span class="badge ${badgeClass}">${c.churn_probability}%</span></td>
+          <td><button class="btn btn-light" style="padding: 3px 6px; font-size: 10px;" onclick="showCustomerDetail('${c.customer_id}')">View</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 5. Simple Charts
+    function renderSimpleCharts() {
+      const k = appData.kpis;
+      
+      // Chart 1: Segments Bar Chart
+      if (segChart) segChart.destroy();
+      const ctx1 = document.getElementById("chart-segments").getContext("2d");
+      segChart = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(k.segment_distribution).map(s => s.split(" ")[0]),
+          datasets: [{
+            label: 'Customer Count',
+            data: Object.values(k.segment_distribution),
+            backgroundColor: '#3b82f6',
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, ticks: { font: { size: 10 } } },
+            x: { ticks: { font: { size: 10 } } }
+          }
+        }
+      });
+
+      // Chart 2: Churn Pie Chart
+      if (churnChart) churnChart.destroy();
+      const ctx2 = document.getElementById("chart-churn").getContext("2d");
+      churnChart = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+          labels: Object.keys(k.churn_distribution),
+          datasets: [{
+            data: Object.values(k.churn_distribution),
+            backgroundColor: ['#16a34a', '#dc2626', '#f59e0b']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } } }
+        }
+      });
+    }
+
+    // Tab Switching
+    function switchTab(tabId, btn) {
+      document.querySelectorAll(".tab-pane").forEach(p => p.style.display = "none");
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      
+      const pane = document.getElementById("tab-" + tabId);
+      if (pane) pane.style.display = "block";
+      
+      if (btn) btn.classList.add("active");
+    }
+
+    // Customer Detail Modal
+    function showCustomerDetail(cid) {
+      const c = appData.customers.find(x => x.customer_id === cid);
+      if (!c) return;
+
+      document.getElementById("modal-name").innerText = c.name;
+      document.getElementById("modal-id").innerText = `${c.customer_id} | ${c.phone || ''}`;
+      document.getElementById("modal-segment").innerText = c.segment;
+      document.getElementById("modal-spend").innerText = "₹" + Math.round(c.total_spend).toLocaleString('en-IN');
+      document.getElementById("modal-visits").innerText = c.frequency + " purchases";
+      document.getElementById("modal-recency").innerText = c.recency_days + " days ago";
+      document.getElementById("modal-cycle").innerText = `Every ${Math.round(c.mean_cycle)} days`;
+      document.getElementById("modal-rfm").innerText = `R:${c.r_score}  F:${c.f_score}  M:${c.m_score} (Combined: ${c.rfm_combined})`;
+      
+      const ratio = (c.recency_days / c.mean_cycle).toFixed(1);
+      document.getElementById("modal-churn-diag").innerText = 
+        `Expected purchase interval is every ${Math.round(c.mean_cycle)} days, but customer has been inactive for ${c.recency_days} days (${ratio}x normal cycle). Churn hazard: ${c.churn_probability}%.`;
+
+      document.getElementById("modal-offer-title").innerText = c.suggested_offer_title + " (" + c.suggested_discount + ")";
+      document.getElementById("modal-offer-action").innerText = c.suggested_offer_detail;
+      document.getElementById("modal-offer-sms").innerText = `"${c.suggested_sms_message}"`;
+
+      document.getElementById("detail-modal").style.display = "flex";
+    }
+
+    function closeDetailModal() {
+      document.getElementById("detail-modal").style.display = "none";
+    }
+
+    // Add Customer Modal
+    function openAddModal() {
+      document.getElementById("add-modal").style.display = "flex";
+    }
+
+    function closeAddModal() {
+      document.getElementById("add-modal").style.display = "none";
+    }
+
+    function submitNewCustomer(e) {
+      e.preventDefault();
+      const btn = document.getElementById("btn-add-submit");
+      btn.innerText = "Adding...";
+      btn.disabled = true;
+
+      const name = document.getElementById("form-name").value.trim();
+      const phone = document.getElementById("form-phone").value.trim();
+      const category = document.getElementById("form-category").value;
+      const amount = parseFloat(document.getElementById("form-amount").value);
+      const behavior = document.getElementById("form-behavior").value;
+
+      let visit_timing = "recent";
+      let history_type = "single";
+      if (behavior === "recent_repeat") {
+        visit_timing = "recent";
+        history_type = "repeat";
+      } else if (behavior === "slipping_repeat") {
+        visit_timing = "slipping";
+        history_type = "repeat";
+      } else if (behavior === "atrisk_repeat") {
+        visit_timing = "at_risk";
+        history_type = "repeat";
+      }
+
+      fetch('/api/add-customer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, category, amount, visit_timing, history_type })
+      })
+      .then(res => res.json())
+      .then(json => {
+        closeAddModal();
+        showToast(json.message);
+        loadData();
+        if (json.customer) {
+          setTimeout(() => showCustomerDetail(json.customer.customer_id), 300);
+        }
+      })
+      .catch(err => showToast("Error adding customer"))
+      .finally(() => {
+        btn.innerText = "Add & Run Prediction";
+        btn.disabled = false;
+      });
+    }
+
+    // Reset Demo Data
+    function resetData() {
+      const btn = document.getElementById("btn-reset");
+      btn.disabled = true;
+      fetch('/api/reset', { method: 'POST' })
+        .then(res => res.json())
+        .then(json => {
+          showToast(json.message);
+          loadData();
+        })
+        .finally(() => btn.disabled = false);
+    }
+
+    // CSV Upload
+    function openUploadModal() {
+      document.getElementById("upload-modal").style.display = "flex";
+    }
+
+    function closeUploadModal() {
+      document.getElementById("upload-modal").style.display = "none";
+    }
+
+    function submitCSV(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById("csv-file");
+      if (!fileInput.files.length) return;
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+
+      const btn = document.getElementById("btn-upload-submit");
+      btn.innerText = "Uploading...";
+      btn.disabled = true;
+
+      fetch('/api/upload', { method: 'POST', body: formData })
+        .then(res => res.json())
+        .then(json => {
+          closeUploadModal();
+          showToast(json.message);
+          loadData();
+        })
+        .catch(err => showToast("Error uploading file"))
+        .finally(() => {
+          btn.innerText = "Process CSV";
+          btn.disabled = false;
+        });
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById("toast");
+      t.innerText = msg;
+      t.style.display = "block";
+      setTimeout(() => { t.style.display = "none"; }, 3000);
+    }
+  </script>
+</body>
+</html>

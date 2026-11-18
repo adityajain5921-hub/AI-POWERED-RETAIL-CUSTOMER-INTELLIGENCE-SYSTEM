@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetailPulse AI - Customer Segmentation & Churn Intelligence (Modern Version)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              800: '#0c4a6e',
+              900: '#082f49',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+          <i data-lucide="store" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-bold text-lg text-slate-900 tracking-tight">RetailPulse AI</span>
+            <span class="text-xs bg-brand-100 text-brand-700 font-semibold px-2 py-0.5 rounded-full border border-brand-200">SaaS Version</span>
+          </div>
+          <p class="text-xs text-slate-500">Retail Customer Segregation, Churn Hazard Prediction & Offer Engine</p>
+        </div>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="flex items-center space-x-2.5">
+        <button onclick="openAddCustomerModal()" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-sm transition">
+          <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+          <span>+ Add Customer</span>
+        </button>
+
+        <button onclick="resetDemoData()" id="btn-reset" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+          <span>Regenerate Demo</span>
+        </button>
+
+        <button onclick="openUploadModal()" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white hover:bg-slate-50 rounded-lg border border-slate-300 transition">
+          <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+          <span>Upload CSV</span>
+        </button>
+
+        <a href="/api/export-offers" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Export Offers</span>
+        </a>
+
+        <a href="/" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg border border-slate-300 transition">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Simple View</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full space-y-6">
+
+    <!-- KPI Metric Cards Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" id="kpi-grid">
+      <!-- Total Customers -->
+      <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Customers</span>
+          <span class="p-2 bg-blue-50 text-blue-600 rounded-lg"><i data-lucide="users" class="w-4 h-4"></i></span>
+        </div>
+        <div class="mt-2 flex items-baseline space-x-2">
+          <span class="text-2xl font-bold text-slate-900" id="kpi-total-customers">--</span>
+          <span class="text-xs text-slate-500" id="kpi-total-txns">-- txns</span>
+        </div>
+        <div class="mt-2 text-xs text-slate-500 flex items-center">
+          <span class="text-emerald-600 font-medium mr-1">Active Store Base</span>
+        </div>
+      </div>
+
+      <!-- Total Gross Revenue -->
+      <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Gross Spend</span>
+          <span class="p-2 bg-indigo-50 text-indigo-600 rounded-lg"><i data-lucide="indian-rupee" class="w-4 h-4"></i></span>
+        </div>
+        <div class="mt-2 flex items-baseline space-x-2">
+          <span class="text-2xl font-bold text-slate-900" id="kpi-total-revenue">--</span>
+        </div>
+        <div class="mt-2 text-xs text-slate-500">
+          Avg spend / customer: <span class="font-semibold text-slate-700" id="kpi-avg-spend">--</span>
+        </div>
+      </div>
+
+      <!-- Loyal Customer Base -->
+      <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Loyal Customer Base</span>
+          <span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg"><i data-lucide="award" class="w-4 h-4"></i></span>
+        </div>
+        <div class="mt-2 flex items-baseline space-x-2">
+          <span class="text-2xl font-bold text-emerald-600" id="kpi-loyal-pct">--%</span>
+          <span class="text-xs text-slate-500" id="kpi-loyal-count">(0)</span>
+        </div>
+        <div class="mt-2 text-xs text-emerald-700 font-medium">
+          Champions & Consistent Shoppers
+        </div>
+      </div>
+
+      <!-- Churn Risk Rate -->
+      <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Churn Risk Rate</span>
+          <span class="p-2 bg-rose-50 text-rose-600 rounded-lg"><i data-lucide="user-x" class="w-4 h-4"></i></span>
+        </div>
+        <div class="mt-2 flex items-baseline space-x-2">
+          <span class="text-2xl font-bold text-rose-600" id="kpi-churn-pct">--%</span>
+          <span class="text-xs text-slate-500" id="kpi-churn-count">(0)</span>
+        </div>
+        <div class="mt-2 text-xs text-rose-700 font-medium">
+          Exceeded Normal Cycle
+        </div>
+      </div>
+
+      <!-- Revenue at Risk -->
+      <div class="bg-white rounded-xl p-4 border border-rose-200 bg-rose-50/30 shadow-sm relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-rose-700 uppercase tracking-wider">Revenue At Risk</span>
+          <span class="p-2 bg-rose-100 text-rose-700 rounded-lg"><i data-lucide="alert-triangle" class="w-4 h-4"></i></span>
+        </div>
+        <div class="mt-2 flex items-baseline space-x-2">
+          <span class="text-2xl font-bold text-rose-700" id="kpi-revenue-risk">--</span>
+        </div>
+        <div class="mt-2 text-xs text-rose-800 font-medium">
+          High-Value Cohort Slipping
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="border-b border-slate-200">
+      <nav class="flex space-x-6 overflow-x-auto" aria-label="Tabs">
+        <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn pb-3 px-1 border-b-2 border-brand-600 font-semibold text-sm text-brand-600 flex items-center space-x-2">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+          <span>Overview & Analytics</span>
+        </button>
+
+        <button onclick="switchTab('segments')" id="tab-btn-segments" class="tab-btn pb-3 px-1 border-b-2 border-transparent font-medium text-sm text-slate-500 hover:text-slate-700 flex items-center space-x-2">
+          <i data-lucide="pie-chart" class="w-4 h-4"></i>
+          <span>Customer Segments (RFM)</span>
+        </button>
+
+        <button onclick="switchTab('churn')" id="tab-btn-churn" class="tab-btn pb-3 px-1 border-b-2 border-transparent font-medium text-sm text-slate-500 hover:text-slate-700 flex items-center space-x-2">
+          <i data-lucide="radar" class="w-4 h-4"></i>
+          <span>Churn Radar (Who's Leaving?)</span>
+          <span id="badge-churn-count" class="bg-rose-100 text-rose-700 text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+        </button>
+
+        <button onclick="switchTab('offers')" id="tab-btn-offers" class="tab-btn pb-3 px-1 border-b-2 border-transparent font-medium text-sm text-slate-500 hover:text-slate-700 flex items-center space-x-2">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>AI Offer Generator</span>
+        </button>
+
+        <button onclick="switchTab('explorer')" id="tab-btn-explorer" class="tab-btn pb-3 px-1 border-b-2 border-transparent font-medium text-sm text-slate-500 hover:text-slate-700 flex items-center space-x-2">
+          <i data-lucide="list-filter" class="w-4 h-4"></i>
+          <span>Customer Directory</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- TAB 1: OVERVIEW & ANALYTICS -->
+    <div id="tab-content-overview" class="tab-pane space-y-6">
+      <div class="bg-gradient-to-r from-amber-500/10 via-brand-500/10 to-indigo-500/10 border border-amber-200/80 rounded-2xl p-5 shadow-sm">
+        <div class="flex items-start space-x-4">
+          <div class="p-3 bg-amber-100 text-amber-800 rounded-xl">
+            <i data-lucide="lightbulb" class="w-6 h-6"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="font-bold text-slate-900 text-base">Key Academic & Business Takeaway for Store Owners</h3>
+            <p class="text-sm text-slate-600 mt-1 leading-relaxed" id="overview-strategic-summary">
+              Loading insights...
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row 1 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="font-bold text-slate-800 text-sm flex items-center space-x-2">
+              <i data-lucide="users" class="w-4 h-4 text-brand-600"></i>
+              <span>Customer Segmentation Share</span>
+            </h4>
+          </div>
+          <div class="relative h-64 flex items-center justify-center">
+            <canvas id="chart-segments"></canvas>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="font-bold text-slate-800 text-sm flex items-center space-x-2">
+              <i data-lucide="badge-percent" class="w-4 h-4 text-emerald-600"></i>
+              <span>Revenue Contribution (₹)</span>
+            </h4>
+          </div>
+          <div class="relative h-64">
+            <canvas id="chart-segment-revenue"></canvas>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h4 class="font-bold text-slate-800 text-sm flex items-center space-x-2">
+              <i data-lucide="shield-alert" class="w-4 h-4 text-rose-600"></i>
+              <span>Churn Hazard Severity</span>
+            </h4>
+          </div>
+          <div class="relative h-64 flex items-center justify-center">
+            <canvas id="chart-churn"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: CUSTOMER SEGMENTS (RFM) -->
+    <div id="tab-content-segments" class="tab-pane hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="font-bold text-slate-900 text-base">RFM Behavioral Clustering Matrix</h3>
+            <p class="text-xs text-slate-500 mt-0.5">
+              Customers are segregated across <strong>Recency (R)</strong>, <strong>Frequency (F)</strong>, and <strong>Monetary Spend (M)</strong>.
+            </p>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 bg-slate-100 rounded-md text-slate-700">Retail Standard</span>
+        </div>
+
+        <div class="mt-4 relative h-80">
+          <canvas id="chart-rfm-scatter"></canvas>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="segment-cards-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- TAB 3: CHURN RADAR -->
+    <div id="tab-content-churn" class="tab-pane hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+          <div>
+            <h3 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+              <i data-lucide="siren" class="w-5 h-5 text-rose-600"></i>
+              <span>High-Risk Churn Early Warning System</span>
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">
+              Identifies shoppers whose inactivity has significantly exceeded their historical inter-purchase cycles.
+            </p>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <span class="text-xs font-medium text-slate-500">Filter Risk:</span>
+            <select id="churn-filter" onchange="filterChurnTable()" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-slate-50 font-medium text-slate-700">
+              <option value="ALL">All At-Risk & Watchlist</option>
+              <option value="High Risk" selected>High Risk Only (>65%)</option>
+              <option value="Medium Risk">Medium Risk Only (35% - 65%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto mt-4">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-50 text-slate-700 uppercase font-semibold text-[11px] border-y border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Customer</th>
+                <th class="py-3 px-4">Segment</th>
+                <th class="py-3 px-4">Last Visit</th>
+                <th class="py-3 px-4">Days Inactive</th>
+                <th class="py-3 px-4">Normal Cycle</th>
+                <th class="py-3 px-4">Total Spend</th>
+                <th class="py-3 px-4">Churn Hazard</th>
+                <th class="py-3 px-4 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="churn-table-body" class="divide-y divide-slate-100">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: AI OFFER GENERATOR -->
+    <div id="tab-content-offers" class="tab-pane hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+          <div>
+            <h3 class="font-bold text-slate-900 text-base flex items-center space-x-2">
+              <i data-lucide="gift" class="w-5 h-5 text-indigo-600"></i>
+              <span>Automated Retention & Margin-Optimized Offers</span>
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">
+              Offers are customized per segment: discounts for churn risks, value-adds for VIPs.
+            </p>
+          </div>
+          <a href="/api/export-offers" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            <span>Export Campaign CSV</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5" id="campaign-cards-grid">
+          <!-- Populated in JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: CUSTOMER DIRECTORY -->
+    <div id="tab-content-explorer" class="tab-pane hidden space-y-6">
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+          <div>
+            <h3 class="font-bold text-slate-900 text-base">Complete Customer Database</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Search and inspect individual customer purchasing habits and RFM diagnostics.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="relative">
+              <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5"></i>
+              <input type="text" id="cust-search" oninput="renderCustomerTable()" placeholder="Search customer or ID..." class="text-xs pl-8 pr-3 py-1.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-500 w-48">
+            </div>
+
+            <select id="cust-segment-filter" onchange="renderCustomerTable()" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-slate-50 font-medium text-slate-700">
+              <option value="ALL">All Segments</option>
+            </select>
+
+            <select id="cust-churn-filter" onchange="renderCustomerTable()" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1.5 bg-slate-50 font-medium text-slate-700">
+              <option value="ALL">All Churn Statuses</option>
+              <option value="Low Risk">Low Risk (Loyal/Active)</option>
+              <option value="Medium Risk">Medium Risk (Watchlist)</option>
+              <option value="High Risk">High Risk (Critical)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto mt-4">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-50 text-slate-700 uppercase font-semibold text-[11px] border-y border-slate-200">
+              <tr>
+                <th class="py-3 px-4">ID & Name</th>
+                <th class="py-3 px-4">Segment</th>
+                <th class="py-3 px-4">RFM Score</th>
+                <th class="py-3 px-4">Recency</th>
+                <th class="py-3 px-4">Frequency</th>
+                <th class="py-3 px-4">Total Spend</th>
+                <th class="py-3 px-4">Top Category</th>
+                <th class="py-3 px-4">Churn Risk</th>
+                <th class="py-3 px-4 text-right">Profile</th>
+              </tr>
+            </thead>
+            <tbody id="directory-table-body" class="divide-y divide-slate-100">
+              <!-- Rendered in JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- CUSTOMER DETAIL MODAL -->
+  <div id="customer-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full shadow-2xl border border-slate-200 overflow-hidden transform transition-all">
+      <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-9 h-9 rounded-full bg-brand-500/20 text-brand-400 border border-brand-400/30 flex items-center justify-center font-bold text-sm" id="modal-initials">
+            AB
+          </div>
+          <div>
+            <h4 class="font-bold text-base leading-tight" id="modal-name">Customer Name</h4>
+            <span class="text-xs text-slate-400" id="modal-id">CUST-1001</span>
+          </div>
+        </div>
+        <button onclick="closeCustomerModal()" class="text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5 max-h-[80vh] overflow-y-auto">
+        <div class="flex flex-wrap gap-2">
+          <span id="modal-segment-badge" class="px-2.5 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-800">Segment</span>
+          <span id="modal-churn-badge" class="px-2.5 py-1 rounded-full text-xs font-semibold bg-rose-100 text-rose-800">High Risk</span>
+          <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700" id="modal-category">Top Category</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+          <div>
+            <span class="text-[11px] text-slate-500 font-medium block">Total Spend</span>
+            <span class="text-base font-bold text-slate-900" id="modal-spend">₹0.00</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 font-medium block">Transactions</span>
+            <span class="text-base font-bold text-slate-900" id="modal-txns">0</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 font-medium block">Last Visit</span>
+            <span class="text-base font-bold text-slate-900" id="modal-recency">0 days ago</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-slate-500 font-medium block">Avg Cycle</span>
+            <span class="text-base font-bold text-slate-900" id="modal-cycle">-- days</span>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">RFM Quintile Breakdown (Scale 1-5)</h5>
+          <div class="grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="p-2.5 bg-blue-50/70 border border-blue-200 rounded-lg">
+              <span class="text-slate-500 block text-[10px]">Recency (R)</span>
+              <span class="font-bold text-blue-700 text-sm" id="modal-r-score">-</span>
+            </div>
+            <div class="p-2.5 bg-indigo-50/70 border border-indigo-200 rounded-lg">
+              <span class="text-slate-500 block text-[10px]">Frequency (F)</span>
+              <span class="font-bold text-indigo-700 text-sm" id="modal-f-score">-</span>
+            </div>
+            <div class="p-2.5 bg-emerald-50/70 border border-emerald-200 rounded-lg">
+              <span class="text-slate-500 block text-[10px]">Monetary (M)</span>
+              <span class="font-bold text-emerald-700 text-sm" id="modal-m-score">-</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-rose-50/60 border border-rose-200 rounded-xl p-3.5">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold text-rose-800 flex items-center space-x-1.5">
+              <i data-lucide="alert-circle" class="w-4 h-4"></i>
+              <span>Churn Hazard Diagnostic</span>
+            </span>
+            <span class="text-xs font-bold text-rose-700" id="modal-churn-pct">85% Risk</span>
+          </div>
+          <p class="text-xs text-rose-700 mt-1" id="modal-churn-reason">
+            Analysis text...
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-4">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-indigo-900 uppercase tracking-wider flex items-center space-x-1">
+              <i data-lucide="sparkles" class="w-4 h-4 text-indigo-600"></i>
+              <span>Recommended Retention Offer</span>
+            </span>
+            <span class="text-xs font-mono font-bold px-2 py-0.5 bg-white border border-indigo-300 text-indigo-800 rounded" id="modal-promo-code">CODE</span>
+          </div>
+          <h5 class="font-bold text-slate-900 text-sm mt-2" id="modal-offer-title">Offer Title</h5>
+          <p class="text-xs text-slate-600 mt-1" id="modal-offer-action">Action description...</p>
+
+          <div class="mt-3 bg-white p-3 rounded-lg border border-indigo-100 text-xs font-sans text-slate-700 relative">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Ready-To-Send Notification</span>
+            <p id="modal-sms-text" class="italic text-slate-600">Message content...</p>
+            <button onclick="copyModalOffer()" class="mt-2 text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center space-x-1">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span id="copy-btn-text">Copy Message</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD CUSTOMER MODAL -->
+  <div id="add-customer-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
+        <h4 class="font-bold text-sm flex items-center space-x-2">
+          <i data-lucide="user-plus" class="w-4 h-4 text-emerald-400"></i>
+          <span>Add New Customer & Test Segmentation</span>
+        </h4>
+        <button onclick="closeAddCustomerModal()" class="text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="add-customer-form" onsubmit="handleAddCustomer(event)" class="p-6 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Customer Full Name</label>
+            <input type="text" id="new-cust-name" required placeholder="e.g. Vikram Malhotra" class="w-full text-xs border border-slate-300 rounded-lg p-2 focus:ring-1 focus:ring-brand-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label>
+            <input type="text" id="new-cust-phone" placeholder="+91 98765 43210" class="w-full text-xs border border-slate-300 rounded-lg p-2 focus:ring-1 focus:ring-brand-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Product Category</label>
+            <select id="new-cust-category" class="w-full text-xs border border-slate-300 rounded-lg p-2 bg-white focus:ring-1 focus:ring-brand-500 focus:outline-none">
+              <option value="Apparel & Fashion">Apparel & Fashion</option>
+              <option value="Footwear & Accessories">Footwear & Accessories</option>
+              <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+              <option value="Electronics & Gadgets">Electronics & Gadgets</option>
+              <option value="Home & Lifestyle">Home & Lifestyle</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Purchase Amount (₹)</label>
+            <input type="number" id="new-cust-amount" required min="50" max="500000" step="50" value="2500" class="w-full text-xs border border-slate-300 rounded-lg p-2 focus:ring-1 focus:ring-brand-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Behavior & Inactivity Simulation</label>
+          <select id="new-cust-behavior" class="w-full text-xs border border-slate-300 rounded-lg p-2 bg-slate-50 font-medium focus:ring-1 focus:ring-brand-500 focus:outline-none">
+            <option value="recent_repeat">🏆 Regular Repeat Shopper, Visited Recently (Simulate VIP / Loyal)</option>
+            <option value="recent_single">🚀 First-Time Buyer, Visited This Week (Simulate New & Promising)</option>
+            <option value="slipping_repeat">⚠️ Regular Buyer, Inactive ~45 Days (Simulate Slipping Risk)</option>
+            <option value="atrisk_repeat" selected>🚨 High-Value Shopper, Inactive 90+ Days (Simulate High Churn Risk!)</option>
+          </select>
+        </div>
+
+        <div class="flex justify-end space-x-2 pt-2 border-t border-slate-100">
+          <button type="button" onclick="closeAddCustomerModal()" class="px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-100 rounded-lg">Cancel</button>
+          <button type="submit" id="btn-submit-add-customer" class="px-4 py-1.5 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-sm">
+            Add & Classify Customer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CSV UPLOAD MODAL -->
+  <div id="upload-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+        <h4 class="font-bold text-slate-900 text-sm flex items-center space-x-2">
+          <i data-lucide="file-up" class="w-4 h-4 text-brand-600"></i>
+          <span>Upload Store POS CSV</span>
+        </h4>
+        <button onclick="closeUploadModal()" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <form id="upload-form" onsubmit="handleUpload(event)" class="p-6 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Select POS Transactions CSV</label>
+          <input type="file" id="csv-file-input" accept=".csv" required class="block w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100 border border-slate-300 rounded-lg p-2">
+        </div>
+        <div class="text-xs text-slate-500 bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-1">
+          <span class="font-semibold block text-slate-700">Required CSV Columns:</span>
+          <p>• <code>customer_id</code> (e.g. CUST-1001)</p>
+          <p>• <code>timestamp</code> (e.g. 2026-10-15 14:30:00)</p>
+          <p>• <code>amount</code> (e.g. 84.50)</p>
+        </div>
+        <div class="flex justify-end space-x-2 pt-2">
+          <button type="button" onclick="closeUploadModal()" class="px-3 py-1.5 text-xs text-slate-600 hover:bg-slate-100 rounded-lg">Cancel</button>
+          <button type="submit" id="btn-submit-upload" class="px-4 py-1.5 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm">Process CSV</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-lg transform transition-all translate-y-20 opacity-0 z-50 flex items-center space-x-2">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toast-text">Success message</span>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    let appData = null;
+    let chartSegments = null;
+    let chartRevenue = null;
+    let chartChurn = null;
+    let chartScatter = null;
+
+    const SEGMENT_COLORS = {
+      "Champions & VIPs": "#0284c7",
+      "Loyal Customers": "#10b981",
+      "New & Promising": "#8b5cf6",
+      "Needs Attention": "#f59e0b",
+      "At Risk (High Value)": "#ef4444",
+      "Hibernating / Inactive": "#94a3b8"
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      fetchData();
+    });
+
+    async function fetchData() {
+      try {
+        const res = await fetch("/api/data");
+        appData = await res.json();
+        renderDashboard();
+      } catch (err) {
+        console.error(err);
+        showToast("Error loading analytics data");
+      }
+    }
+
+    function renderDashboard() {
+      if (!appData) return;
+      const kpis = appData.kpis;
+
+      document.getElementById("kpi-total-customers").innerText = kpis.total_customers.toLocaleString();
+      document.getElementById("kpi-total-txns").innerText = `${kpis.total_transactions} txns`;
+      document.getElementById("kpi-total-revenue").innerText = `₹${kpis.total_revenue.toLocaleString('en-IN')}`;
+      document.getElementById("kpi-avg-spend").innerText = `₹${kpis.avg_spend_per_customer.toLocaleString('en-IN')}`;
+      document.getElementById("kpi-loyal-pct").innerText = `${kpis.loyal_pct}%`;
+      document.getElementById("kpi-loyal-count").innerText = `(${kpis.loyal_customers} customers)`;
+      document.getElementById("kpi-churn-pct").innerText = `${kpis.churn_rate_pct}%`;
+      document.getElementById("kpi-churn-count").innerText = `(${kpis.high_risk_customers} customers)`;
+      document.getElementById("kpi-revenue-risk").innerText = `₹${kpis.revenue_at_risk.toLocaleString('en-IN')}`;
+      document.getElementById("badge-churn-count").innerText = kpis.high_risk_customers;
+
+      const summaryText = `Your store has <strong>${kpis.total_customers} tracked customers</strong> generating <strong>₹${kpis.total_revenue.toLocaleString('en-IN')}</strong> in total revenue. While <strong>${kpis.loyal_pct}%</strong> of your customer base is loyal (Champions & Regulars), <strong>${kpis.high_risk_customers} customers (${kpis.churn_rate_pct}%)</strong> are at imminent risk of churning. Crucially, these slipping customers account for <strong>₹${kpis.revenue_at_risk.toLocaleString('en-IN')}</strong> in past revenue.`;
+      document.getElementById("overview-strategic-summary").innerHTML = summaryText;
+
+      renderOverviewCharts();
+      renderRFMScatterChart();
+      renderSegmentCards();
+      renderChurnTable();
+      renderOfferCampaigns();
+      populateDirectoryFilters();
+      renderCustomerTable();
+
+      lucide.createIcons();
+    }
+
+    function renderOverviewCharts() {
+      const kpis = appData.kpis;
+      const segLabels = Object.keys(kpis.segment_distribution);
+      const segCounts = Object.values(kpis.segment_distribution);
+      const segColors = segLabels.map(l => SEGMENT_COLORS[l] || "#64748b");
+
+      if (chartSegments) chartSegments.destroy();
+      const ctxSeg = document.getElementById("chart-segments").getContext("2d");
+      chartSegments = new Chart(ctxSeg, {
+        type: "doughnut",
+        data: {
+          labels: segLabels,
+          datasets: [{ data: segCounts, backgroundColor: segColors, borderWidth: 2, borderColor: "#ffffff" }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 10 } } } },
+          cutout: "68%"
+        }
+      });
+
+      const revLabels = Object.keys(kpis.segment_revenue);
+      const revValues = Object.values(kpis.segment_revenue);
+      const revColors = revLabels.map(l => SEGMENT_COLORS[l] || "#64748b");
+
+      if (chartRevenue) chartRevenue.destroy();
+      const ctxRev = document.getElementById("chart-segment-revenue").getContext("2d");
+      chartRevenue = new Chart(ctxRev, {
+        type: "bar",
+        data: {
+          labels: revLabels.map(l => l.split(" ")[0]),
+          datasets: [{ label: "Spend (₹)", data: revValues, backgroundColor: revColors, borderRadius: 6 }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { ticks: { callback: v => "₹" + v.toLocaleString('en-IN'), font: { size: 10 } }, grid: { color: "#f1f5f9" } },
+            x: { ticks: { font: { size: 10 } }, grid: { display: false } }
+          }
+        }
+      });
+
+      const churnLabels = Object.keys(kpis.churn_distribution);
+      const churnCounts = Object.values(kpis.churn_distribution);
+      const churnColors = churnLabels.map(l => (l === "High Risk" ? "#ef4444" : (l === "Medium Risk" ? "#f59e0b" : "#10b981")));
+
+      if (chartChurn) chartChurn.destroy();
+      const ctxChurn = document.getElementById("chart-churn").getContext("2d");
+      chartChurn = new Chart(ctxChurn, {
+        type: "doughnut",
+        data: {
+          labels: churnLabels,
+          datasets: [{ data: churnCounts, backgroundColor: churnColors, borderWidth: 2, borderColor: "#ffffff" }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: "bottom", labels: { boxWidth: 12, font: { size: 10 } } } },
+          cutout: "68%"
+        }
+      });
+    }
+
+    function renderRFMScatterChart() {
+      const customers = appData.customers;
+      const datasets = {};
+
+      customers.forEach(c => {
+        if (!datasets[c.segment]) {
+          datasets[c.segment] = {
+            label: c.segment,
+            data: [],
+            backgroundColor: (SEGMENT_COLORS[c.segment] || "#64748b") + "aa",
+            borderColor: SEGMENT_COLORS[c.segment] || "#64748b",
+            borderWidth: 1
+          };
+        }
+        datasets[c.segment].data.push({
+          x: c.recency_days,
+          y: c.total_spend,
+          r: Math.min(18, Math.max(4, c.frequency * 2)),
+          name: c.name,
+          cid: c.customer_id
+        });
+      });
+
+      if (chartScatter) chartScatter.destroy();
+      const ctxScatter = document.getElementById("chart-rfm-scatter").getContext("2d");
+      chartScatter = new Chart(ctxScatter, {
+        type: "bubble",
+        data: { datasets: Object.values(datasets) },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: "top", labels: { boxWidth: 10, font: { size: 10 } } },
+            tooltip: {
+              callbacks: {
+                label: ctx => {
+                  const p = ctx.raw;
+                  return `${p.name} (${p.cid}) | Inactive: ${p.x} days | Spend: ₹${p.y.toLocaleString('en-IN')}`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: { title: { display: true, text: "Recency (Days Inactive)", font: { size: 11 } }, grid: { color: "#f8fafc" } },
+            y: {
+              title: { display: true, text: "Monetary Value (₹ Total Spend)", font: { size: 11 } },
+              ticks: { callback: v => "₹" + v.toLocaleString('en-IN') },
+              grid: { color: "#f1f5f9" }
+            }
+          }
+        }
+      });
+    }
+
+    function renderSegmentCards() {
+      const kpis = appData.kpis;
+      const grid = document.getElementById("segment-cards-grid");
+      grid.innerHTML = "";
+
+      const segmentDescriptions = {
+        "Champions & VIPs": "Frequent big spenders who purchased recently. Protect margin with VIP perks rather than deep discounts.",
+        "Loyal Customers": "Consistent repeat shoppers. Perfect candidates for cross-selling complementary collections.",
+        "New & Promising": "First or second time shoppers. Nurture with a quick second-purchase promo within 14 days.",
+        "At Risk (High Value)": "Previously strong spenders who have now crossed their average visit cycle. High priority win-back!",
+        "Needs Attention": "Regular buyers whose purchase frequency is slowing down. Send gentle reminder perks.",
+        "Hibernating / Inactive": "Prolonged inactivity with low frequency. Re-engage with clearance promos."
+      };
+
+      Object.keys(kpis.segment_distribution).forEach(seg => {
+        const count = kpis.segment_distribution[seg] || 0;
+        const rev = kpis.segment_revenue[seg] || 0;
+        const avg = count > 0 ? (rev / count).toFixed(2) : 0;
+        const color = SEGMENT_COLORS[seg] || "#0284c7";
+
+        const card = document.createElement("div");
+        card.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold" style="background-color: ${color}20; color: ${color};">
+                ${seg}
+              </span>
+              <span class="text-xs font-semibold text-slate-500">${count} customers</span>
+            </div>
+            <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+              ${segmentDescriptions[seg] || "Customer cluster based on RFM."}
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <div>
+              <span class="text-[10px] text-slate-400 block uppercase font-medium">Cohort Spend</span>
+              <span class="font-bold text-slate-900">₹${rev.toLocaleString('en-IN')}</span>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-slate-400 block uppercase font-medium">Avg Per Head</span>
+              <span class="font-bold text-slate-700">₹${Number(avg).toLocaleString('en-IN')}</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderChurnTable() {
+      const customers = appData.customers;
+      const filter = document.getElementById("churn-filter").value;
+      const tbody = document.getElementById("churn-table-body");
+      tbody.innerHTML = "";
+
+      let filtered = customers.filter(c => c.churn_status === "High Risk" || c.churn_status === "Medium Risk");
+      if (filter !== "ALL") filtered = filtered.filter(c => c.churn_status === filter);
+      filtered.sort((a, b) => b.churn_probability - a.churn_probability || b.total_spend - a.total_spend);
+
+      filtered.forEach(c => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50/80 transition cursor-pointer";
+        tr.onclick = () => openCustomerModal(c.customer_id);
+
+        const hazardColor = c.churn_probability >= 65 ? "bg-rose-500 text-rose-600" : "bg-amber-500 text-amber-600";
+        tr.innerHTML = `
+          <td class="py-3 px-4 font-medium text-slate-900">
+            <div>${c.name}</div>
+            <div class="text-[11px] text-slate-400 font-mono">${c.customer_id}</div>
+          </td>
+          <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-700">${c.segment}</span></td>
+          <td class="py-3 px-4 text-slate-500">${c.last_purchase_date}</td>
+          <td class="py-3 px-4 font-bold ${c.recency_days > 60 ? 'text-rose-600' : 'text-slate-700'}">${c.recency_days} days</td>
+          <td class="py-3 px-4 text-slate-500">Every ${Math.round(c.mean_cycle)} days</td>
+          <td class="py-3 px-4 font-semibold text-slate-900">₹${c.total_spend.toLocaleString('en-IN')}</td>
+          <td class="py-3 px-4">
+            <div class="flex items-center space-x-2">
+              <div class="w-16 bg-slate-200 rounded-full h-2 overflow-hidden">
+                <div class="h-2 rounded-full ${hazardColor.split(" ")[0]}" style="width: ${c.churn_probability}%"></div>
+              </div>
+              <span class="text-xs font-bold ${hazardColor.split(" ")[1]}">${c.churn_probability}%</span>
+            </div>
+          </td>
+          <td class="py-3 px-4 text-right">
+            <button class="px-2.5 py-1 text-xs font-semibold bg-brand-50 text-brand-700 hover:bg-brand-100 rounded-md transition">View Offer</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterChurnTable() { renderChurnTable(); }
+
+    function renderOfferCampaigns() {
+      const customers = appData.customers;
+      const grid = document.getElementById("campaign-cards-grid");
+      grid.innerHTML = "";
+
+      const campaignMap = {};
+      customers.forEach(c => {
+        const title = c.suggested_offer_title;
+        if (!campaignMap[title]) {
+          campaignMap[title] = {
+            title: title,
+            tag: c.suggested_offer_tag,
+            discount: c.suggested_discount,
+            action: c.suggested_offer_detail,
+            promo_code: c.suggested_promo_code,
+            sample_sms: c.suggested_sms_message,
+            customers: []
+          };
+        }
+        campaignMap[title].customers.push(c);
+      });
+
+      Object.values(campaignMap).forEach(camp => {
+        const count = camp.customers.length;
+        const totalAudienceSpend = camp.customers.reduce((acc, x) => acc + x.total_spend, 0);
+
+        const card = document.createElement("div");
+        card.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-100">${camp.tag}</span>
+              <span class="text-xs font-semibold text-slate-500">${count} recipients</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-sm mt-3">${camp.title}</h4>
+            <div class="mt-2 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md inline-block">Incentive: ${camp.discount}</div>
+            <p class="text-xs text-slate-600 mt-2">${camp.action}</p>
+            <div class="mt-3.5 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-600 relative">
+              <span class="text-[10px] text-slate-400 uppercase font-bold block mb-1">WhatsApp / SMS Preview</span>
+              <p class="italic line-clamp-3">"${camp.sample_sms}"</p>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs text-slate-500 font-medium">Audience Value: <strong class="text-slate-800">₹${Math.round(totalAudienceSpend).toLocaleString('en-IN')}</strong></span>
+            <button onclick="copyCampaignText('${encodeURIComponent(camp.sample_sms)}')" class="inline-flex items-center space-x-1 text-xs font-semibold text-indigo-600 hover:text-indigo-800">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copy Template</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    function populateDirectoryFilters() {
+      const segSelect = document.getElementById("cust-segment-filter");
+      segSelect.innerHTML = `<option value="ALL">All Segments</option>`;
+      appData.segments.forEach(s => {
+        const opt = document.createElement("option");
+        opt.value = s;
+        opt.innerText = s;
+        segSelect.appendChild(opt);
+      });
+    }
+
+    function renderCustomerTable() {
+      const customers = appData.customers;
+      const search = document.getElementById("cust-search").value.toLowerCase().trim();
+      const segFilter = document.getElementById("cust-segment-filter").value;
+      const churnFilter = document.getElementById("cust-churn-filter").value;
+      const tbody = document.getElementById("directory-table-body");
+      tbody.innerHTML = "";
+
+      let filtered = customers.filter(c => {
+        const matchesSearch = !search || c.name.toLowerCase().includes(search) || c.customer_id.toLowerCase().includes(search);
+        const matchesSeg = segFilter === "ALL" || c.segment === segFilter;
+        const matchesChurn = churnFilter === "ALL" || c.churn_status === churnFilter;
+        return matchesSearch && matchesSeg && matchesChurn;
+      });
+
+      filtered.forEach(c => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50/80 transition cursor-pointer";
+        tr.onclick = () => openCustomerModal(c.customer_id);
+
+        const churnBadge = c.churn_status === "High Risk" ? "bg-rose-100 text-rose-800" : (c.churn_status === "Medium Risk" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800");
+        tr.innerHTML = `
+          <td class="py-3 px-4 font-medium text-slate-900"><div>${c.name}</div><div class="text-[11px] text-slate-400 font-mono">${c.customer_id}</div></td>
+          <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-700">${c.segment}</span></td>
+          <td class="py-3 px-4 font-mono font-bold text-slate-700 text-xs">${c.rfm_combined}</td>
+          <td class="py-3 px-4 text-slate-600">${c.recency_days}d ago</td>
+          <td class="py-3 px-4 text-slate-600">${c.frequency} visits</td>
+          <td class="py-3 px-4 font-bold text-slate-900">₹${c.total_spend.toLocaleString('en-IN')}</td>
+          <td class="py-3 px-4 text-slate-500">${c.top_category}</td>
+          <td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-bold ${churnBadge}">${c.churn_probability}%</span></td>
+          <td class="py-3 px-4 text-right"><button class="p-1 text-slate-400 hover:text-brand-600 transition"><i data-lucide="chevron-right" class="w-4 h-4"></i></button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    let currentModalCustomer = null;
+    function openCustomerModal(customerId) {
+      const c = appData.customers.find(x => x.customer_id === customerId);
+      if (!c) return;
+      currentModalCustomer = c;
+
+      const initials = c.name.split(" ").map(n => n[0]).join("").substring(0, 2);
+      document.getElementById("modal-initials").innerText = initials;
+      document.getElementById("modal-name").innerText = c.name;
+      document.getElementById("modal-id").innerText = `${c.customer_id} | ${c.phone || ''}`;
+
+      document.getElementById("modal-segment-badge").innerText = c.segment;
+      document.getElementById("modal-segment-badge").style.backgroundColor = (SEGMENT_COLORS[c.segment] || "#0284c7") + "20";
+      document.getElementById("modal-segment-badge").style.color = SEGMENT_COLORS[c.segment] || "#0284c7";
+
+      const churnBadge = document.getElementById("modal-churn-badge");
+      churnBadge.innerText = `${c.churn_probability}% Churn Probability (${c.churn_status})`;
+      churnBadge.className = `px-2.5 py-1 rounded-full text-xs font-semibold ${c.churn_status === "High Risk" ? "bg-rose-100 text-rose-800" : (c.churn_status === "Medium Risk" ? "bg-amber-100 text-amber-800" : "bg-emerald-100 text-emerald-800")}`;
+
+      document.getElementById("modal-category").innerText = `Top Category: ${c.top_category}`;
+      document.getElementById("modal-spend").innerText = `₹${c.total_spend.toLocaleString('en-IN')}`;
+      document.getElementById("modal-txns").innerText = `${c.frequency}`;
+      document.getElementById("modal-recency").innerText = `${c.recency_days} days ago`;
+      document.getElementById("modal-cycle").innerText = `Every ${Math.round(c.mean_cycle)}d`;
+
+      document.getElementById("modal-r-score").innerText = `${c.r_score}/5`;
+      document.getElementById("modal-f-score").innerText = `${c.f_score}/5`;
+      document.getElementById("modal-m-score").innerText = `${c.m_score}/5`;
+
+      document.getElementById("modal-churn-pct").innerText = `${c.churn_probability}% Hazard Score`;
+      const ratio = (c.recency_days / c.mean_cycle).toFixed(1);
+      document.getElementById("modal-churn-reason").innerHTML = `Expected interval is every <strong>${Math.round(c.mean_cycle)} days</strong>, but customer has been absent for <strong>${c.recency_days} days</strong> (${ratio}x normal cycle).`;
+
+      document.getElementById("modal-promo-code").innerText = c.suggested_promo_code;
+      document.getElementById("modal-offer-title").innerText = c.suggested_offer_title;
+      document.getElementById("modal-offer-action").innerText = c.suggested_offer_detail;
+      document.getElementById("modal-sms-text").innerText = `"${c.suggested_sms_message}"`;
+      document.getElementById("copy-btn-text").innerText = "Copy Message";
+
+      document.getElementById("customer-modal").classList.remove("hidden");
+      lucide.createIcons();
+    }
+
+    function closeCustomerModal() { document.getElementById("customer-modal").classList.add("hidden"); }
+
+    function copyModalOffer() {
+      if (!currentModalCustomer) return;
+      navigator.clipboard.writeText(currentModalCustomer.suggested_sms_message);
+      document.getElementById("copy-btn-text").innerText = "Copied!";
+      showToast("Message copied to clipboard!");
+    }
+
+    function copyCampaignText(encodedText) {
+      navigator.clipboard.writeText(decodeURIComponent(encodedText));
+      showToast("Template copied to clipboard!");
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-pane").forEach(p => p.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(b => {
+        b.classList.remove("border-brand-600", "text-brand-600");
+        b.classList.add("border-transparent", "text-slate-500");
+      });
+
+      const pane = document.getElementById(`tab-content-${tabId}`);
+      if (pane) pane.classList.remove("hidden");
+      const btn = document.getElementById(`tab-btn-${tabId}`);
+      if (btn) {
+        btn.classList.add("border-brand-600", "text-brand-600");
+        btn.classList.remove("border-transparent", "text-slate-500");
+      }
+    }
+
+    async function resetDemoData() {
+      const btn = document.getElementById("btn-reset");
+      btn.disabled = true;
+      try {
+        const res = await fetch("/api/reset", { method: "POST" });
+        const json = await res.json();
+        showToast(json.message);
+        await fetchData();
+      } finally { btn.disabled = false; }
+    }
+
+    function openUploadModal() { document.getElementById("upload-modal").classList.remove("hidden"); }
+    function closeUploadModal() { document.getElementById("upload-modal").classList.add("hidden"); }
+
+    async function handleUpload(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById("csv-file-input");
+      if (!fileInput.files.length) return;
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+      const res = await fetch("/api/upload", { method: "POST", body: formData });
+      const json = await res.json();
+      closeUploadModal();
+      showToast(json.message);
+      await fetchData();
+    }
+
+    function openAddCustomerModal() { document.getElementById("add-customer-modal").classList.remove("hidden"); }
+    function closeAddCustomerModal() { document.getElementById("add-customer-modal").classList.add("hidden"); }
+
+    async function handleAddCustomer(e) {
+      e.preventDefault();
+      const name = document.getElementById("new-cust-name").value.trim();
+      const phone = document.getElementById("new-cust-phone").value.trim();
+      const category = document.getElementById("new-cust-category").value;
+      const amount = parseFloat(document.getElementById("new-cust-amount").value);
+      const behavior = document.getElementById("new-cust-behavior").value;
+
+      let visit_timing = behavior.includes("atrisk") ? "at_risk" : (behavior.includes("slipping") ? "slipping" : "recent");
+      let history_type = behavior.includes("repeat") ? "repeat" : "single";
+
+      const res = await fetch("/api/add-customer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, category, amount, visit_timing, history_type })
+      });
+      const json = await res.json();
+      closeAddCustomerModal();
+      showToast(json.message);
+      await fetchData();
+      if (json.customer) openCustomerModal(json.customer.customer_id);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toast-text").innerText = msg;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      setTimeout(() => toast.classList.add("translate-y-20", "opacity-0"), 3000);
+    }
+  </script>
+</body>
+</html>
